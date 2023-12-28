@@ -1,0 +1,216 @@
+_id: 651e842a82063a002c6fa24f
+title: Projects
+description: Projeler
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  customer:
+    type: relation
+    title: customer
+    description: Müşteri Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d309082063a002c6f9851
+    dependent: false
+    primary: name
+  name:
+    type: string
+    title: name
+    description: Proje Adı
+    options:
+      position: bottom
+      translate: false
+  related_person:
+    type: string
+    title: related_person
+    description: İlgili Kişi Adı
+    options:
+      position: bottom
+  related_person_phone:
+    type: string
+    title: related_person_phone
+    description: İlgili Kişi Tel
+    options:
+      position: bottom
+  related_person_role:
+    type: string
+    title: related_person_role
+    description: İlgili Kişi Görevi
+    options:
+      position: bottom
+  related_person_email:
+    type: string
+    title: related_person_email
+    description: İlgili Kişi E-Mail
+    options:
+      position: bottom
+  building_drawing:
+    type: array
+    title: building_drawing
+    description: Bina Çizimi
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  products:
+    type: array
+    title: products
+    description: Üniteler
+    options:
+      position: bottom
+    items:
+      title: ""
+      type: object
+      properties:
+        product_stepped_brand_type_model:
+          type: relation
+          title: product_stepped_brand_type_model
+          description: Ünite_Marka_Ürün Tipi_Ürün Modeli
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 651d84bc82063a002c6f9f9a
+          dependent: false
+        count:
+          type: number
+          title: count
+          description: Adet
+          options:
+            position: bottom
+  field_control_form:
+    type: array
+    title: field_control_form
+    description: Saha Ölçümü
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  photos:
+    type: array
+    title: photos
+    description: Fotoğraflar
+    options:
+      position: bottom
+    items:
+      title: many
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+      description: many
+  additional_document:
+    type: array
+    title: additional_document
+    description: Ek Döküman
+    options:
+      position: bottom
+    items:
+      title: many
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+      description: many
+  comment_section:
+    type: textarea
+    title: comment_section
+    description: Notlar
+    options:
+      position: bottom
+  reminder:
+    type: date
+    title: reminder
+    description: Hatırlatma
+    options:
+      position: bottom
+  serial_number:
+    type: number
+    title: serial_number
+    description: PROJE NUMARASI
+    options:
+      position: bottom
+  created_date:
+    type: date
+    title: created_date
+    description: Oluşturma Tarihi
+    options:
+      position: left
+    readOnly: false
+    default: :created_at
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 2
+required:
+  - name
+  - customer
+category: pages

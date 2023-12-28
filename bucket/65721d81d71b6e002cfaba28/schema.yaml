@@ -1,0 +1,155 @@
+_id: 65721d81d71b6e002cfaba28
+title: Contracts
+description: Describe your new bucket
+icon: view_stream
+primary: title
+readOnly: false
+history: false
+properties:
+  title:
+    type: string
+    title: title
+    description: Title of the row
+    options:
+      position: right
+  project:
+    type: relation
+    title: project
+    description: Proje Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651e842a82063a002c6fa24f
+    dependent: false
+    primary: name
+  customer:
+    type: relation
+    title: customer
+    description: Müşteri
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d309082063a002c6f9851
+    dependent: false
+    primary: name
+  offer:
+    type: relation
+    title: offer
+    description: Teklif RefNo
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d6a2882063a002c6f9ba3
+    dependent: false
+    primary: reference_number
+  product:
+    type: relation
+    title: product
+    description: Ünite
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d84bc82063a002c6f9f9a
+    dependent: false
+    primary: name
+  agreement:
+    type: array
+    title: agreement
+    description: Sözleşme Dosyası
+    options:
+      position: right
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  agreement_signed:
+    type: array
+    title: agreement_signed
+    description: İmzalı Sözleşme Dosyası
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  payment:
+    type: array
+    title: payment
+    description: Description of the payment input
+    options:
+      position: right
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        money:
+          type: string
+          title: money
+          description: Description of the money input
+          options:
+            position: bottom
+        date:
+          type: string
+          title: date
+          description: Description of the date input
+          options:
+            position: bottom
+        method:
+          type: string
+          title: method
+          description: Description of the method input
+          options:
+            position: bottom
+        currency:
+          type: string
+          title: currency
+          description: Description of the currency input
+          options:
+            position: bottom
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 4
+category: pages
+required:
+  - offer

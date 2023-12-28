@@ -1,0 +1,62 @@
+_id: 651d84bc82063a002c6f9f9a
+title: Products
+description: Üniteler
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  name:
+    type: string
+    title: name
+    description: Adı
+    options:
+      position: right
+  brand:
+    type: string
+    title: brand
+    description: Marka
+    options:
+      position: bottom
+  type:
+    type: string
+    title: type
+    description: Ürün Tipi
+    options:
+      position: bottom
+  model:
+    type: string
+    title: model
+    description: Ürün Modeli
+    options:
+      position: bottom
+  abbreviation:
+    type: string
+    title: abbreviation
+    description: Kısaltma
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    options:
+      position: right
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+acl:
+  write: true==true
+  read: true==true
+order: 1
+required:
+  - brand
+  - type
+  - model
+  - abbreviation
+category: pages

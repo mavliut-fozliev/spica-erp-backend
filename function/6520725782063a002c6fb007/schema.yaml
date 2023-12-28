@@ -1,0 +1,46 @@
+_id: 6520725782063a002c6fb007
+name: triggers
+language: javascript
+timeout: 120
+triggers:
+  addUserToBucket:
+    options:
+      collection: identity
+      type: INSERT
+    type: database
+    active: true
+  deleteUserFromBucket:
+    options:
+      collection: identity
+      type: DELETE
+    type: database
+    active: true
+  addProjectToNotificationBucket:
+    options:
+      bucket: 651e842a82063a002c6fa24f
+      type: INSERT
+    type: bucket
+    active: true
+  addApprovedOfferToNotificationBucket:
+    options:
+      bucket: 651d6a2882063a002c6f9ba3
+      type: UPDATE
+    type: bucket
+    active: true
+  addReminderNotification:
+    options:
+      timezone: UTC
+      frequency: "* * * * *"
+    type: schedule
+    active: true
+  sendMail:
+    options:
+      method: Post
+      path: /send-mail
+      preflight: true
+    type: http
+    active: true
+env:
+  CLIENT_API_KEY: "{CLIENT_API_KEY}"
+  SECRET_API_KEY: "{SECRET_API_KEY}"
+memoryLimit: 100

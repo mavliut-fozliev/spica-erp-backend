@@ -1,0 +1,43 @@
+_id: 655f2fd0d71b6e002cf9186e
+title: SAISProjects
+description: Projeler
+icon: view_stream
+primary: title
+readOnly: false
+history: false
+properties:
+  title:
+    type: string
+    title: title
+    description: Title of the row
+    options:
+      position: right
+  ordered_project:
+    type: relation
+    title: ordered_project
+    description: Proje Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6527b072ffa6b3002d10bfd3
+    dependent: false
+    primary: name
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 24
+category: pages

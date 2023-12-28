@@ -1,0 +1,341 @@
+_id: 657ae033d71b6e002cfbe32f
+title: MonthlyProgressPayments
+description: Describe your new bucket
+icon: view_stream
+primary: month
+readOnly: false
+history: false
+properties:
+  year:
+    type: number
+    title: year
+    description: Yıl
+    options:
+      position: bottom
+    enum:
+      - 2023
+      - 2024
+      - 2025
+      - 2026
+      - 2027
+      - 2028
+      - 2029
+      - 2030
+      - 2031
+      - 2032
+      - 2033
+      - 2034
+      - 2035
+      - 2036
+      - 2037
+      - 2038
+      - 2039
+      - 2040
+  month:
+    type: string
+    title: month
+    description: Ay
+    options:
+      position: bottom
+    enum:
+      - Ocak
+      - Şubat
+      - Mart
+      - Nisan
+      - Mayıs
+      - Haziran
+      - Temmuz
+      - Ağustos
+      - Eylül
+      - Ekim
+      - Kasım
+      - Aralık
+  team_name:
+    type: relation
+    title: team_name
+    description: Ekip
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6576ddbbd71b6e002cfb2812
+    dependent: false
+    primary: team_name
+  payments:
+    type: array
+    title: payments
+    description: Ödemeler Tablosu
+    options:
+      position: bottom
+    items:
+      title: grid
+      type: object
+      properties:
+        project:
+          type: relation
+          title: project
+          description: Proje Adı
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 6527b072ffa6b3002d10bfd3
+          dependent: false
+        location:
+          type: relation
+          title: location
+          description: Lokasyon
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 6579a793d71b6e002cfbabb6
+          dependent: false
+        model:
+          type: string
+          title: model
+          description: Model
+          options:
+            position: bottom
+        capacity:
+          type: string
+          title: capacity
+          description: Kapasite
+          options:
+            position: bottom
+        number_of_stops:
+          type: number
+          title: number_of_stops
+          description: Durak Sayısı
+          options:
+            position: bottom
+        high_floor:
+          type: number
+          title: high_floor
+          description: Ek Kat
+          options:
+            position: bottom
+        work_status:
+          type: string
+          title: work_status
+          description: İşin Durumu
+          options:
+            position: bottom
+          enum:
+            - MEK.MONTAJ
+            - TEST
+        price_per_floor:
+          type: number
+          title: price_per_floor
+          description: Birim Fiyat
+          options:
+            position: bottom
+        total_installation_fee:
+          type: number
+          title: total_installation_fee
+          description: Toplam Fiyat
+          options:
+            position: bottom
+        work_percentage:
+          type: string
+          title: work_percentage
+          description: "%"
+          options:
+            position: bottom
+        fuel:
+          type: number
+          title: fuel
+          description: Yakıt
+          options:
+            position: bottom
+        payment:
+          type: number
+          title: payment
+          description: Ödeme
+          options:
+            position: bottom
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  total_fuel:
+    type: number
+    title: total_fuel
+    description: Toplam Yakıt
+    options:
+      position: bottom
+  total_payment:
+    type: number
+    title: total_payment
+    description: Toplam Ödeme
+    options:
+      position: bottom
+  additional_works_to_be_paid:
+    type: array
+    title: additional_works_to_be_paid
+    description: Ek Ödenecek İşler
+    options:
+      position: bottom
+    items:
+      title: flex
+      type: object
+      properties:
+        note:
+          type: textarea
+          title: note
+          description: Açıklama
+          options:
+            position: bottom
+        amount:
+          type: number
+          title: amount
+          description: Tutar
+          options:
+            position: bottom
+  total_additional_payments:
+    type: number
+    title: total_additional_payments
+    description: Ek Ödemeler Toplamı
+    options:
+      position: bottom
+  general_total_of_progressed_payments:
+    type: number
+    title: general_total_of_progressed_payments
+    description: Hakedişler Genel Toplamı
+    options:
+      position: bottom
+  advance_debt_transferred_from_the_previous_month:
+    type: number
+    title: advance_debt_transferred_from_the_previous_month
+    description: Önceki Aydan Devreden Avans Borcu
+    options:
+      position: bottom
+  advance_debt_transferred_from_the_previous_month_euro:
+    type: number
+    title: advance_debt_transferred_from_the_previous_month_euro
+    description: Önceki Aydan Devreden Avans Borcu - €
+    options:
+      position: bottom
+  advance_and_other_payments_given_this_month:
+    type: array
+    title: advance_and_other_payments_given_this_month
+    description: Bu Aydan Verilen Avans Ve Diğer Ödemeler
+    options:
+      position: bottom
+    items:
+      title: flex
+      type: object
+      properties:
+        note:
+          type: string
+          title: note
+          description: Açıklama
+          options:
+            position: bottom
+        amount:
+          type: number
+          title: amount
+          description: Tutar
+          options:
+            position: bottom
+  total_of_advance_and_other_payments_given_this_month:
+    type: number
+    title: total_of_advance_and_other_payments_given_this_month
+    description: Bu Aydan Verilen Avans Ve Diğer Ödemeler Toplamı
+    options:
+      position: bottom
+  duties_made_this_month_euro:
+    type: number
+    title: duties_made_this_month_euro
+    description: Bu Ay Yapılan Kesintiler - €
+    options:
+      position: bottom
+  debt_transferred_to_the_next_month_euro:
+    type: number
+    title: debt_transferred_to_the_next_month_euro
+    description: Sonraki Aya Devreden Borç - €
+    options:
+      position: bottom
+  euro_exchange_rate:
+    type: number
+    title: euro_exchange_rate
+    description: Euro Döviz Kuru
+    options:
+      position: bottom
+  total_debt:
+    type: number
+    title: total_debt
+    description: Toplam Borç
+    options:
+      position: bottom
+  this_month_interruption:
+    type: number
+    title: this_month_interruption
+    description: Bu Ay Yapılan Kesinti
+    options:
+      position: bottom
+  debt_transferred_to_the_next_month:
+    type: number
+    title: debt_transferred_to_the_next_month
+    description: Sonraki Aya Devreden Borç
+    options:
+      position: bottom
+  progress_payment_amount:
+    type: number
+    title: progress_payment_amount
+    description: Hakediş Ödeme Tutarı
+    options:
+      position: bottom
+  payments_to_employees:
+    type: array
+    title: payments_to_employees
+    description: Ödemeler
+    options:
+      position: bottom
+    items:
+      title: flex
+      type: object
+      properties:
+        employee:
+          type: relation
+          title: employee
+          description: Personel
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 655cc987d71b6e002cf8b478
+          dependent: false
+        salary:
+          type: number
+          title: salary
+          description: Ödemesi
+          options:
+            position: bottom
+  personnel_salary_payment_deposited_to_bank:
+    type: number
+    title: personnel_salary_payment_deposited_to_bank
+    description: Bankaya Yatan Personel Maaş Ödemesi
+    options:
+      position: bottom
+  remainder:
+    type: number
+    title: remainder
+    description: Kalan
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 11
+category: pages
+required:
+  - month
+  - year
+  - team_name

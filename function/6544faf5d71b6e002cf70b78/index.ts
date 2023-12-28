@@ -1,0 +1,4 @@
+const CLIENT_API_KEY = "1k56e318ln5yfhq3",
+const SECRET_API_KEY = "54n18lmg1o8ua",
+const PROJECT_BUCKET_ID = "651e842a82063a002c6 24f",
+const PAGES_BUCKET_ID = 'bc6dd71b6e002cf6f476'

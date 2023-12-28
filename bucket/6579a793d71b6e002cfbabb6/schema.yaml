@@ -1,0 +1,97 @@
+_id: 6579a793d71b6e002cfbabb6
+title: Locations
+description: Describe your new bucket
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  name:
+    type: string
+    title: name
+    description: Adı
+    options:
+      position: bottom
+  model:
+    type: string
+    title: model
+    description: Model
+    options:
+      position: bottom
+    enum:
+      - 3000/3300
+      - 5000/5500
+  fuel_cost_details:
+    type: array
+    title: fuel_cost_details
+    description: Yakıt Maliyet Detayları
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        from:
+          type: number
+          title: from
+          description: İlk Durak
+          options:
+            position: bottom
+        to:
+          type: number
+          title: to
+          description: Son Durak
+          options:
+            position: bottom
+        unit_installation_day:
+          type: number
+          title: unit_installation_day
+          description: Ünite Montaj Günü
+          options:
+            position: bottom
+        location_distance_details_km_daily:
+          type: number
+          title: location_distance_details_km_daily
+          description: Lokasyon Mesafe Detayları KM Günlük
+          options:
+            position: bottom
+        location_distance_details_km:
+          type: number
+          title: location_distance_details_km
+          description: Lokasyon Mesafe Detayları KM
+          options:
+            position: bottom
+        location_liter_detail:
+          type: number
+          title: location_liter_detail
+          description: Lokasyon Litre Detayı
+          options:
+            position: bottom
+        location_fuel_cost:
+          type: number
+          title: location_fuel_cost
+          description: Lokasyon Yakıt Bedeli
+          options:
+            position: bottom
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 12
+category: pages
+required:
+  - name
+  - model

@@ -1,0 +1,14 @@
+_id: 6544faf5d71b6e002cf70b78
+name: Environment
+language: javascript
+timeout: 12
+triggers:
+  default:
+    type: http
+    active: false
+    options:
+      method: Get
+      path: /
+      preflight: true
+env: {}
+memoryLimit: 100

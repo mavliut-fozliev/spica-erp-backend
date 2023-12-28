@@ -1,0 +1,24 @@
+_id: 656ee1c2d71b6e002cfa505c
+title: Info
+description: Describe your new bucket
+icon: info
+primary: key
+readOnly: false
+history: false
+properties:
+  key:
+    type: string
+    title: key
+    description: Description of the key input
+    options:
+      position: bottom
+  value:
+    type: number
+    title: value
+    description: Description of the value input
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 36

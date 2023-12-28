@@ -1,0 +1,202 @@
+_id: 655f3062d71b6e002cf91881
+title: Vehicles
+description: Araçlar
+icon: view_stream
+primary: license_plate
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  license_plate:
+    type: string
+    title: license_plate
+    description: Plaka No
+    options:
+      position: bottom
+  employee:
+    type: relation
+    title: employee
+    description: Personel
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 655cc987d71b6e002cf8b478
+    dependent: false
+    primary: name
+  start_date:
+    type: date
+    title: start_date
+    description: Kullanım Başlangıcı
+    options:
+      position: bottom
+  end_date:
+    type: date
+    title: end_date
+    description: Kullanım Bitişi
+    options:
+      position: bottom
+  navigation_document:
+    type: array
+    title: navigation_document
+    description: Seyrüsefer Belgesi
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  navigation_end_date:
+    type: date
+    title: navigation_end_date
+    description: Seyrüsefer Bitiş Tarihi
+    options:
+      position: bottom
+  inspection_document:
+    type: array
+    title: inspection_document
+    description: Araç Muayene Belgesi
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  inspection_end_date:
+    type: date
+    title: inspection_end_date
+    description: Araç Muayene Bitiş Tarihi
+    options:
+      position: bottom
+  exhaust_emissions_document:
+    type: array
+    title: exhaust_emissions_document
+    description: Egsoz Emisyon Belgesi
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  exhaust_emissions_end_date:
+    type: date
+    title: exhaust_emissions_end_date
+    description: Egsoz Emisyon Bitiş Tarihi
+    options:
+      position: bottom
+  compulsory_traffic_insurance:
+    type: array
+    title: compulsory_traffic_insurance
+    description: Zorunlu Trafik Sigortası
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  compulsory_traffic_insurance_end_date:
+    type: date
+    title: compulsory_traffic_insurance_end_date
+    description: Zorunlu Trafik Sigortası Bitiş Tarihi
+    options:
+      position: bottom
+  insurance_policy:
+    type: array
+    title: insurance_policy
+    description: Kasko
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  insurance_end_date:
+    type: date
+    title: insurance_end_date
+    description: Kasko Bitiş Tarihi
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 22
+category: pages
+required:
+  - license_plate

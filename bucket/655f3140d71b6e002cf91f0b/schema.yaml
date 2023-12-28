@@ -1,0 +1,87 @@
+_id: 655f3140d71b6e002cf91f0b
+title: AnnualLeave
+description: Izinler
+icon: view_stream
+primary: title
+readOnly: false
+history: false
+properties:
+  title:
+    type: string
+    title: title
+    description: Title of the row
+    options:
+      position: right
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  employee:
+    type: relation
+    title: employee
+    description: Personel
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 655cc987d71b6e002cf8b478
+    dependent: false
+    primary: name
+  start_date:
+    type: date
+    title: start_date
+    description: Başlangıç Tarihi
+    options:
+      position: bottom
+  end_date:
+    type: date
+    title: end_date
+    description: Bitiş Tarihi
+    options:
+      position: bottom
+  leave_type:
+    type: string
+    title: leave_type
+    description: İzin Türü
+    options:
+      position: bottom
+    enum:
+      - yıllık
+      - günlük
+      - saatlik
+  department_head_approval:
+    type: boolean
+    title: department_head_approval
+    description: Bölüm Başkanı Onayı
+    options:
+      position: bottom
+    default: false
+  manager_approval:
+    type: boolean
+    title: manager_approval
+    description: Yönetici Onayı
+    options:
+      position: bottom
+    default: false
+  reason:
+    type: textarea
+    title: reason
+    description: Not
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 19
+category: pages
+required:
+  - leave_type

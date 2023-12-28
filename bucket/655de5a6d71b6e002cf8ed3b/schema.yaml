@@ -1,0 +1,85 @@
+_id: 655de5a6d71b6e002cf8ed3b
+title: SafetyWalk
+description: Sahalar
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  name:
+    type: string
+    title: name
+    description: Adı
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  test_boolean:
+    type: boolean
+    title: test_boolean
+    description: Description of the test_boolean input
+    options:
+      position: bottom
+    default: false
+  test_yes_no:
+    type: string
+    title: test_yes_no
+    description: Description of the test_yes_no input
+    options:
+      position: bottom
+    enum:
+      - evet
+      - hayır
+      - boş
+  test_radio:
+    type: string
+    title: test_radio
+    description: Description of the test_radio input
+    options:
+      position: bottom
+  test_file:
+    type: array
+    title: test_file
+    description: Description of the test_file input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  access_identifier:
+    type: string
+    title: access_identifier
+    description: Description of the access_identifier input
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 15
+category: pages

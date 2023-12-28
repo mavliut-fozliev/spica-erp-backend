@@ -1,0 +1,50 @@
+_id: 65437ba6d71b6e002cf6cfdf
+name: bucketTriggers
+language: javascript
+timeout: 12
+triggers:
+  addStatusFieldToBucket:
+    options:
+      collection: buckets
+      type: REPLACE
+    type: database
+    active: true
+  addBucketToPagesBucket:
+    options:
+      collection: buckets
+      type: REPLACE
+    type: database
+    active: true
+  deleteBucketFromPagesBucket:
+    options:
+      collection: buckets
+      type: DELETE
+    type: database
+    active: true
+  changeBucketOrder:
+    options:
+      collection: buckets
+      type: REPLACE
+    type: database
+    active: true
+  changeOffersCustomer:
+    options:
+      bucket: 651e842a82063a002c6fa24f
+      type: UPDATE
+    type: bucket
+    active: true
+  create_NewOrder_AssemblyProject_OrderTracking_SAIS:
+    options:
+      bucket: 65721d81d71b6e002cfaba28
+      type: ALL
+    type: bucket
+    active: true
+  onD:
+    options:
+      collection: buckets
+      type: REPLACE
+    type: database
+    active: true
+env:
+  CLIENT_API_KEY: "{CLIENT_API_KEY}"
+memoryLimit: 100

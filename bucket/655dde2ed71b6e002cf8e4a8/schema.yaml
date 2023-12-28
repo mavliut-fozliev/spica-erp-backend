@@ -1,0 +1,108 @@
+_id: 655dde2ed71b6e002cf8e4a8
+title: Employees-OHS
+description: Personeller
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  name:
+    type: string
+    title: name
+    description: Description of the name input
+    options:
+      position: right
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  employee:
+    type: relation
+    title: employee
+    description: Çalışan
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 655cc987d71b6e002cf8b478
+    dependent: false
+    primary: name
+  trainings:
+    type: array
+    title: trainings
+    description: Eğitimler
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        training:
+          type: relation
+          title: training
+          description: Eğitim
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 655de02dd71b6e002cf8eab4
+          dependent: false
+        notes:
+          type: textarea
+          title: notes
+          description: Not
+          options:
+            position: bottom
+  equipments:
+    type: relation
+    title: equipments
+    description: Ekipmanlar
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 655dea3ad71b6e002cf8eee1
+    dependent: false
+    primary: name
+  cautions_and_punishments:
+    type: array
+    title: cautions_and_punishments
+    description: Uyarılar ve Cezalar
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        date:
+          type: date
+          title: date
+          description: Tarih
+          options:
+            position: bottom
+        instructor:
+          type: string
+          title: instructor
+          description: Uyarıyı veren kişi
+          options:
+            position: bottom
+        notes:
+          type: textarea
+          title: notes
+          description: Notlar
+          options:
+            position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 14
+category: pages
+required:
+  - employee

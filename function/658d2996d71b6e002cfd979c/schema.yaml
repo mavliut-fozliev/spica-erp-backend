@@ -1,0 +1,14 @@
+_id: 658d2996d71b6e002cfd979c
+name: updateFieldFeatures
+language: javascript
+timeout: 12
+triggers:
+  default:
+    type: database
+    active: true
+    options:
+      collection: buckets
+      type: REPLACE
+env:
+  CLIENT_API_KEY: "{CLIENT_API_KEY}"
+memoryLimit: 100

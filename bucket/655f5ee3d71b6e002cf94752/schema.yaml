@@ -1,0 +1,107 @@
+_id: 655f5ee3d71b6e002cf94752
+title: Overtime
+description: Describe your new bucket
+icon: view_stream
+primary: title
+readOnly: false
+history: false
+properties:
+  title:
+    type: string
+    title: title
+    description: Title of the row
+    options:
+      position: right
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  employee:
+    type: relation
+    title: employee
+    description: Personel
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 655cc987d71b6e002cf8b478
+    dependent: false
+    primary: name
+  project:
+    type: relation
+    title: project
+    description: Proje
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6527b072ffa6b3002d10bfd3
+    dependent: false
+    primary: name
+  product:
+    type: relation
+    title: product
+    description: Ünite
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d84bc82063a002c6f9f9a
+    dependent: false
+    primary: name
+  overtime:
+    type: date
+    title: overtime
+    description: Tarih
+    options:
+      position: bottom
+  start_time:
+    type: date
+    title: start_time
+    description: Başlangıç Saati
+    options:
+      position: bottom
+  end_time:
+    type: date
+    title: end_time
+    description: Bitiş Saati
+    options:
+      position: bottom
+  department_head_approval:
+    type: boolean
+    title: department_head_approval
+    description: Bölüm Başkanı Onayı
+    options:
+      position: bottom
+    default: false
+  manager_approval:
+    type: boolean
+    title: manager_approval
+    description: Yönetici Onayı
+    options:
+      position: bottom
+    default: false
+  reason:
+    type: textarea
+    title: reason
+    description: Not
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 20
+category: pages
+required:
+  - employee
+  - project
+  - overtime
+  - start_time
+  - end_time

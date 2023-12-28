@@ -1,0 +1,172 @@
+_id: 6544bc6dd71b6e002cf6f476
+title: Pages
+description: Describe your new bucket
+icon: list_alt
+primary: title
+readOnly: false
+history: false
+properties:
+  title:
+    type: string
+    title: title
+    description: Description of the title input
+    options:
+      position: bottom
+  description:
+    type: string
+    title: description
+    description: Description of the description input
+    options:
+      position: bottom
+  order:
+    type: number
+    title: order
+    description: Description of the order input
+    options:
+      position: bottom
+  type:
+    type: string
+    title: type
+    description: Description of the type input
+    options:
+      position: bottom
+    enum:
+      - table
+      - ganttChart
+      - custom
+      - customFormData
+    default: table
+  sections:
+    type: array
+    title: sections
+    description: Description of the sections input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        title:
+          type: string
+          title: title
+          description: Description of the title input
+          options:
+            position: bottom
+        description:
+          type: string
+          title: description
+          description: Description of the description input
+          options:
+            position: bottom
+        criterion:
+          type: string
+          title: criterion
+          description: Description of the criterion input
+          options:
+            position: bottom
+        value:
+          type: string
+          title: value
+          description: Description of the value input
+          options:
+            position: bottom
+        download_initially:
+          type: boolean
+          title: download_initially
+          description: Description of the download_initially input
+          options:
+            position: bottom
+          default: false
+        exclude:
+          type: array
+          title: exclude
+          description: Description of the exclude input
+          options:
+            position: bottom
+          items:
+            title: Title of the items
+            type: object
+            properties:
+              property_name:
+                type: string
+                title: property_name
+                description: Description of the property_name input
+                options:
+                  position: bottom
+              value:
+                type: string
+                title: value
+                description: Description of the value input
+                options:
+                  position: bottom
+  main_section_name:
+    type: string
+    title: main_section_name
+    description: Description of the main_section_name input
+    options:
+      position: bottom
+  field_features:
+    type: array
+    title: field_features
+    description: Description of the field_features input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        width:
+          type: number
+          title: width
+          description: width in pixels
+          options:
+            position: bottom
+          default: 200
+        order:
+          type: number
+          title: order
+          description: order of field
+          options:
+            position: bottom
+          default: 0
+        field_name:
+          type: string
+          title: field_name
+          description: Description of the field_name input
+          options:
+            position: bottom
+        prevent_adding_and_removing_elements_to_an_array:
+          type: boolean
+          title: prevent_adding_and_removing_elements_to_an_array
+          description: turn to true for prevent adding and removing elements to an array
+          options:
+            position: bottom
+          default: false
+        hide_from_table:
+          type: boolean
+          title: hide_from_table
+          description: set to true to hide a column from the table
+          options:
+            position: bottom
+          default: false
+  page_features:
+    type: array
+    title: page_features
+    description: Description of the page_features input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: string
+  property_features:
+    type: string
+    title: property_features
+    description: additional features for properties
+    options:
+      position: bottom
+    default: "{}"
+acl:
+  write: true==true
+  read: true==true
+order: 33
+category: config

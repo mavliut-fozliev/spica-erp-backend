@@ -1,0 +1,53 @@
+_id: 651d309082063a002c6f9851
+title: Customers
+description: Müşteriler
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  name:
+    type: string
+    title: name
+    description: Müşteri Adı
+    options:
+      position: bottom
+  address:
+    type: string
+    title: address
+    description: Müşteri Adresi
+    options:
+      position: bottom
+  phone:
+    type: string
+    title: phone
+    description: Müşteri Telefon
+    options:
+      position: bottom
+  email:
+    type: string
+    title: email
+    description: Müşteri E-Mail
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 0
+required:
+  - name
+category: pages

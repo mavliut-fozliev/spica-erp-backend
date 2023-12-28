@@ -1,0 +1,23 @@
+_id: 64f86ebb9556fd002c275dd9
+name: Auth
+language: javascript
+timeout: 12
+triggers:
+  login:
+    type: http
+    active: true
+    options:
+      method: Post
+      path: /login
+      preflight: true
+  registration:
+    options:
+      method: Post
+      path: /registration
+      preflight: true
+    type: http
+    active: false
+env:
+  CLIENT_API_KEY: "{CLIENT_API_KEY}"
+  SECRET_API_KEY: "{SECRET_API_KEY}"
+memoryLimit: 100

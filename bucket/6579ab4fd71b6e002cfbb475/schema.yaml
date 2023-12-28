@@ -1,0 +1,86 @@
+_id: 6579ab4fd71b6e002cfbb475
+title: Prices
+description: Describe your new bucket
+icon: view_stream
+primary: model
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  model:
+    type: string
+    title: model
+    description: Model
+    options:
+      position: bottom
+    enum:
+      - 3000/3300
+      - 5000/5500
+  capacity:
+    type: string
+    title: capacity
+    description: Kapasite
+    options:
+      position: bottom
+    enum:
+      - "400"
+      - "535"
+      - "625"
+      - "675"
+      - "800"
+      - "1000"
+      - "1050"
+      - "1125"
+      - "1275"
+      - "1600"
+      - "1800"
+      - "2000"
+  price:
+    type: array
+    title: price
+    description: Fiyat Listesi
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        from:
+          type: number
+          title: from
+          description: İlk Durak
+          options:
+            position: bottom
+        to:
+          type: number
+          title: to
+          description: Son Durak
+          options:
+            position: bottom
+        price_per_floor:
+          type: number
+          title: price_per_floor
+          description: Fiyat
+          options:
+            position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 13
+category: pages
+required:
+  - model
+  - capacity

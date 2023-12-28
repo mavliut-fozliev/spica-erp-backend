@@ -1,0 +1,180 @@
+_id: 6527b072ffa6b3002d10bfd3
+title: Orders
+description: Siparişler
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  name:
+    type: string
+    title: name
+    description: Adı
+    options:
+      position: right
+  customer:
+    type: relation
+    title: customer
+    description: Müşteri Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d309082063a002c6f9851
+    dependent: false
+    primary: name
+  project:
+    type: relation
+    title: project
+    description: Proje Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651e842a82063a002c6fa24f
+    dependent: false
+    primary: name
+  offer:
+    type: relation
+    title: offer
+    description: Teklif RefNo
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d6a2882063a002c6f9ba3
+    dependent: false
+    primary: reference_number
+  product:
+    type: relation
+    title: product
+    description: Ünite
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d84bc82063a002c6f9f9a
+    dependent: false
+    primary: name
+  product_count:
+    type: number
+    title: product_count
+    description: Ünite Adet
+    options:
+      position: bottom
+  delivery_date:
+    type: date
+    title: delivery_date
+    description: Fabrika Çıkış Tarihi
+    options:
+      position: bottom
+  estimated_arrival_date:
+    type: date
+    title: estimated_arrival_date
+    description: Tahmini Gümrüğe Geliş Tarihi
+    options:
+      position: bottom
+  schindler_files:
+    type: array
+    title: schindler_files
+    description: Schindler dosyaları
+    options:
+      position: bottom
+    items:
+      title: many
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+      description: many
+  pull_signal_form:
+    type: array
+    title: pull_signal_form
+    description: Pull Signal Formu
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: array
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+          items:
+            title: Title of the items
+            type: string
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  notes_for_assembly:
+    type: textarea
+    title: notes_for_assembly
+    description: Müşteri İsteği
+    options:
+      position: bottom
+  invoice:
+    type: array
+    title: invoice
+    description: Fatura
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  product_serial_number:
+    type: array
+    title: product_serial_number
+    description: Ünite Seri Numara
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: string
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 5
+category: pages
+required: []

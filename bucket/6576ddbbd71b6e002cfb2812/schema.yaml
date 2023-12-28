@@ -1,0 +1,54 @@
+_id: 6576ddbbd71b6e002cfb2812
+title: FieldTeams
+description: Describe your new bucket
+icon: view_stream
+primary: team_name
+readOnly: false
+history: false
+properties:
+  team_name:
+    type: string
+    title: team_name
+    description: Ekip Adı
+    options:
+      position: bottom
+  employees:
+    type: array
+    title: employees
+    description: Personel
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        employee:
+          type: relation
+          title: employee
+          description: ""
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 655cc987d71b6e002cf8b478
+          dependent: false
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 8
+category: pages
+required:
+  - team_name

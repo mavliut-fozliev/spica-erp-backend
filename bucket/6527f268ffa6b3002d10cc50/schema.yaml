@@ -1,0 +1,36 @@
+_id: 6527f268ffa6b3002d10cc50
+title: Users
+description: Describe your new bucket
+icon: account_circle
+primary: identifier
+readOnly: false
+history: false
+properties:
+  identifier:
+    type: string
+    title: identifier
+    description: Description of the identifier input
+    options:
+      position: bottom
+  identity_id:
+    type: string
+    title: identity_id
+    description: Description of the identity_id input
+    options:
+      position: bottom
+  name:
+    type: string
+    title: name
+    description: Description of the name input
+    options:
+      position: bottom
+  surname:
+    type: string
+    title: surname
+    description: Description of the surname input
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 35

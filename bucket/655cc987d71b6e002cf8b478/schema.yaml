@@ -1,0 +1,370 @@
+_id: 655cc987d71b6e002cf8b478
+title: Employees
+description: Personeller
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  name:
+    type: string
+    title: name
+    description: Ad Soyad
+    options:
+      position: bottom
+  tc_identity:
+    type: string
+    title: tc_identity
+    description: Tckimlik
+    options:
+      position: bottom
+  job:
+    type: string
+    title: job
+    description: Görev
+    options:
+      position: bottom
+    enum:
+      - Direktör
+      - Genel Müdür
+      - Sekreter
+      - Muhasebe Müdürü
+      - Muhasebe Müdür Yardımcısı
+      - Muhasebe Personeli
+      - Bakım Müdürü
+      - Bakım Süpervizorü
+      - Bakım Teknisyeni
+      - Saha Mühendisi
+      - Saha Süpervizörü
+      - FQE Mühendisi
+      - SAIS Mühendisi
+      - Satın Alma & Depo Personeli
+      - Depo Personeli
+      - Yardımcı Personel
+  department:
+    type: string
+    title: department
+    description: Departman
+    options:
+      position: bottom
+    enum:
+      - Yönetim
+      - Muhasebe
+      - Bakım
+      - Saha
+      - FQE
+      - SAIS
+      - Satın Alma & Depo
+      - Depo
+      - Genel
+  birth_date:
+    type: date
+    title: birth_date
+    description: Doğum Tarihi
+    options:
+      position: bottom
+  start_date:
+    type: date
+    title: start_date
+    description: İşe Giriş Tarihi
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  diploma:
+    type: array
+    title: diploma
+    description: Diploma
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  place_of_residence:
+    type: array
+    title: place_of_residence
+    description: İkametgah
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  civil_registry:
+    type: array
+    title: civil_registry
+    description: Nüfus Kaydı
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  passport:
+    type: array
+    title: passport
+    description: Pasaport
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  employment_contract:
+    type: array
+    title: employment_contract
+    description: İş Sözleşmesi
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  personnel_sertifications:
+    type: array
+    title: personnel_sertifications
+    description: Sertifikalar
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        files:
+          type: array
+          title: files
+          description: Belge Yükle
+          options:
+            position: bottom
+          items:
+            title: Title of the items
+            type: object
+            properties:
+              storage:
+                type: storage
+                title: storage
+                description: Description of the storage input
+                options:
+                  position: bottom
+              deleted:
+                type: boolean
+                title: deleted
+                description: Description of the deleted input
+                options:
+                  position: bottom
+                default: false
+        end_date:
+          type: date
+          title: end_date
+          description: Bitirme Tarihi
+          options:
+            position: bottom
+        trainings:
+          type: relation
+          title: trainings
+          description: Eğitim
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 655de02dd71b6e002cf8eab4
+          dependent: false
+  debited_equipments:
+    type: array
+    title: debited_equipments
+    description: Zımmetlenen Ekipmanlar
+    options:
+      position: bottom
+    items:
+      title: grid
+      type: object
+      properties:
+        name:
+          type: string
+          title: name
+          description: Adı
+          options:
+            position: bottom
+        count:
+          type: number
+          title: count
+          description: Adet
+          options:
+            position: bottom
+        date_of_issue:
+          type: date
+          title: date_of_issue
+          description: Veriliş Tarihi
+          options:
+            position: bottom
+        expiration_date:
+          type: date
+          title: expiration_date
+          description: Son Kullanma Tarihi
+          options:
+            position: bottom
+  permit_required:
+    type: boolean
+    title: permit_required
+    description: Çalışma İzni
+    options:
+      position: bottom
+    default: false
+  permit_start_date:
+    type: date
+    title: permit_start_date
+    description: Çalışma İzni Başlangıç Tarihi
+    options:
+      position: bottom
+  permit_end_date:
+    type: date
+    title: permit_end_date
+    description: Çalışma İzni Bitiş Tarihi
+    options:
+      position: bottom
+  work_permit_document:
+    type: array
+    title: work_permit_document
+    description: Çalışma İzni
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  make_passive:
+    type: boolean
+    title: make_passive
+    description: İşten Çıkar
+    options:
+      position: bottom
+    default: false
+  dismissal_date:
+    type: date
+    title: dismissal_date
+    description: İşten Çıkış Tarihi
+    options:
+      position: bottom
+  dismissal_certificate:
+    type: array
+    title: dismissal_certificate
+    description: İşten Çıkış Belgesi
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+acl:
+  write: true==true
+  read: true==true
+order: 18
+category: pages
+required:
+  - name
+  - tc_identity
+  - job
+  - department

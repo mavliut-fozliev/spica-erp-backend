@@ -1,0 +1,20 @@
+attributes:
+  type: object
+  properties:
+    role:
+      type: string
+      title: role
+      description: Description of 'role'
+      options: {}
+    name:
+      type: string
+      title: name
+      description: Description of 'name'
+      options: {}
+      default: No Name
+    surname:
+      type: string
+      title: surname
+      description: Description of 'surname'
+      options: {}
+      default: No Surname

@@ -1,0 +1,69 @@
+_id: 655de02dd71b6e002cf8eab4
+title: Trainings
+description: Eğitimler
+icon: view_stream
+primary: name
+readOnly: false
+history: false
+properties:
+  name:
+    type: string
+    title: name
+    description: Adı
+    options:
+      position: bottom
+  date:
+    type: date
+    title: date
+    description: Tarih
+    options:
+      position: bottom
+  notes:
+    type: textarea
+    title: notes
+    description: Not
+    options:
+      position: bottom
+  files:
+    type: array
+    title: files
+    description: Dökümanlar
+    options:
+      position: bottom
+    items:
+      title: many
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: many
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+      description: many
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 16
+category: pages

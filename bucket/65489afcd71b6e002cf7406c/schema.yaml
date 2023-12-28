@@ -1,0 +1,143 @@
+_id: 65489afcd71b6e002cf7406c
+title: GanttChart
+description: Yıllık Montaj Planı
+icon: view_stream
+primary: type
+readOnly: false
+history: false
+properties:
+  order_name:
+    type: relation
+    title: order_name
+    description: Sipariş
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6527b072ffa6b3002d10bfd3
+    dependent: false
+    primary: name
+  customer:
+    type: relation
+    title: customer
+    description: Müşteri
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d309082063a002c6f9851
+    dependent: false
+    primary: name
+  project_name:
+    type: relation
+    title: project_name
+    description: Proje
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651e842a82063a002c6fa24f
+    dependent: false
+    primary: name
+  product:
+    type: relation
+    title: product
+    description: Ünite
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d84bc82063a002c6f9f9a
+    dependent: false
+    primary: name
+  product_serial_number:
+    type: string
+    title: product_serial_number
+    description: Ünite Seri Numara
+    options:
+      position: bottom
+  field_team:
+    type: relation
+    title: field_team
+    description: Ekip
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6576ddbbd71b6e002cfb2812
+    dependent: false
+    primary: team_name
+  task_name:
+    type: string
+    title: task_name
+    description: Görev Adı
+    options:
+      position: bottom
+  start:
+    type: date
+    title: start
+    description: Başlangıç Tarihi
+    options:
+      position: bottom
+    default: :created_at
+  type:
+    type: string
+    title: type
+    description: Description of the type input
+    options:
+      position: right
+    enum:
+      - project
+      - task
+    default: project
+  end:
+    type: date
+    title: end
+    description: Bitiş Tarihi
+    options:
+      position: bottom
+    default: :created_at
+  progress:
+    type: string
+    title: progress
+    description: İlerleme
+    options:
+      position: bottom
+    default: "0"
+  order:
+    type: number
+    title: order
+    description: Description of the order input
+    options:
+      position: right
+    default: 0
+  project:
+    type: string
+    title: project
+    description: Description of the project input
+    options:
+      position: right
+  dependencies:
+    type: array
+    title: dependencies
+    description: Description of the dependencies input
+    options:
+      position: right
+    items:
+      title: Title of the items
+      type: string
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 7
+category: pages
+required: []

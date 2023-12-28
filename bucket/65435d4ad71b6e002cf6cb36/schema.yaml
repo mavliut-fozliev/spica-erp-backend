@@ -1,0 +1,63 @@
+_id: 65435d4ad71b6e002cf6cb36
+title: Page-Modules
+description: Describe your new bucket
+icon: storage
+primary: module_name
+readOnly: false
+history: false
+properties:
+  module_name:
+    type: string
+    title: module_name
+    description: Description of the module_name input
+    options:
+      position: bottom
+  pages:
+    type: relation
+    title: pages
+    description: Description of the pages input
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 6544bc6dd71b6e002cf6f476
+    dependent: false
+    primary: title
+  bound_modules:
+    type: array
+    title: bound_modules
+    description: Description of the bound_modules input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: string
+  submodules:
+    type: array
+    title: submodules
+    description: Description of the submodules input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        name:
+          type: string
+          title: name
+          description: Description of the name input
+          options:
+            position: bottom
+        pages:
+          type: relation
+          title: pages
+          description: Description of the pages input
+          options:
+            position: bottom
+          relationType: onetomany
+          bucketId: 6544bc6dd71b6e002cf6f476
+          dependent: false
+acl:
+  write: true==true
+  read: true==true
+order: 31
+category: config

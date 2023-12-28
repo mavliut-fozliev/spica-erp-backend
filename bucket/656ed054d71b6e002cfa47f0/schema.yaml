@@ -1,0 +1,55 @@
+_id: 656ed054d71b6e002cfa47f0
+title: FieldInspections
+description: Describe your new bucket
+icon: view_stream
+primary: field_name
+readOnly: false
+history: false
+properties:
+  field_name:
+    type: string
+    title: field_name
+    description: Saha Adı
+    options:
+      position: bottom
+  information:
+    type: array
+    title: information
+    description: Durum Bilgisi
+    options:
+      position: bottom
+    items:
+      title: flex
+      type: object
+      properties:
+        note:
+          type: textarea
+          title: note
+          description: Not
+          options:
+            position: bottom
+        date:
+          type: date
+          title: date
+          description: Tarih
+          options:
+            position: bottom
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 9
+category: pages

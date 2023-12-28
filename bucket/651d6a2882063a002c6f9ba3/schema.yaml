@@ -1,0 +1,178 @@
+_id: 651d6a2882063a002c6f9ba3
+title: Offers
+description: Teklifler
+icon: view_stream
+primary: reference_number
+readOnly: false
+history: false
+properties:
+  customer:
+    type: relation
+    title: customer
+    description: Müşteri Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d309082063a002c6f9851
+    dependent: false
+    primary: name
+  project:
+    type: relation
+    title: project
+    description: Proje Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651e842a82063a002c6fa24f
+    dependent: false
+    primary: name
+  product__from__project:
+    type: relation
+    title: product__from__project
+    description: Ünite
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d84bc82063a002c6f9f9a
+    dependent: false
+    primary: name
+  product_count:
+    type: number
+    title: product_count
+    description: Ünite Adet
+    options:
+      position: bottom
+  reference_number:
+    type: string
+    title: reference_number
+    description: Referans NO
+    options:
+      position: bottom
+  previous_offer:
+    type: relation
+    title: previous_offer
+    description: Orjinal Teklif
+    options:
+      position: left
+    relationType: onetoone
+    bucketId: 651d6a2882063a002c6f9ba3
+    dependent: false
+    primary: reference_number
+  notes:
+    type: textarea
+    title: notes
+    description: Notlar
+    options:
+      position: bottom
+  shape_screenshot:
+    type: array
+    title: shape_screenshot
+    description: Shape Ekran Görüntüsü
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  shape_property_file:
+    type: array
+    title: shape_property_file
+    description: Shape Özellik Dosyası
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  proposed_solution:
+    type: array
+    title: proposed_solution
+    description: Teklif Dosyası
+    options:
+      position: right
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  confirmed:
+    type: boolean
+    title: confirmed
+    description: Onay durumu
+    options:
+      position: bottom
+    default: false
+  status:
+    type: string
+    title: status
+    description: |-
+      -exist
+      -deleted
+      -archived
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - archived
+    options:
+      position: right
+  created_date:
+    type: date
+    title: created_date
+    description: Oluşturma Tarihi
+    options:
+      position: left
+    default: :created_at
+  proposed_solution_docx_data:
+    type: string
+    title: proposed_solution_docx_data
+    description: Description of the proposed_solution_docx_data input
+    options:
+      position: right
+acl:
+  write: true==true
+  read: true==true
+order: 3
+category: pages
+required:
+  - project
+  - product__from__project
+  - customer

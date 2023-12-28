@@ -1,0 +1,30 @@
+_id: 6579aa86d71b6e002cfbb32d
+title: Project-Variables
+description: Describe your new bucket
+icon: calendar_view_day
+primary: key
+readOnly: false
+history: false
+properties:
+  key:
+    type: string
+    title: key
+    description: Description of the key input
+    options:
+      position: bottom
+  value:
+    type: string
+    title: value
+    description: Description of the value input
+    options:
+      position: bottom
+  description:
+    type: string
+    title: description
+    description: Description of the description input
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 37
