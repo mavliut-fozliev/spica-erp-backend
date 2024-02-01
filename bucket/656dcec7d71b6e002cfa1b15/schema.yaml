@@ -12,6 +12,16 @@ properties:
     description: Name
     options:
       position: right
+  ordered_project:
+    type: relation
+    title: ordered_project
+    description: Proje Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6527b072ffa6b3002d10bfd3
+    dependent: false
+    primary: name
   unit_worksite_delivery_form:
     type: array
     title: unit_worksite_delivery_form
@@ -36,16 +46,6 @@ properties:
             position: bottom
           default: false
       description: ""
-  ordered_project:
-    type: relation
-    title: ordered_project
-    description: Proje Adı
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 6527b072ffa6b3002d10bfd3
-    dependent: false
-    primary: name
   unit_worksite_delivery_photos:
     type: array
     title: unit_worksite_delivery_photos
@@ -226,6 +226,13 @@ properties:
       - archived
     options:
       position: right
+  fully_added_to_gantt_chart:
+    type: boolean
+    title: fully_added_to_gantt_chart
+    description: Tüm Üniteler Montaj Planına Eklendi
+    options:
+      position: bottom
+    default: false
 acl:
   write: true==true
   read: true==true

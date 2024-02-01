@@ -1,5 +1,5 @@
 _id: 6544faf5d71b6e002cf70b78
-name: Environment
+name: 🔠 Environment
 language: javascript
 timeout: 12
 triggers:
@@ -12,3 +12,4 @@ triggers:
       preflight: true
 env: {}
 memoryLimit: 100
+order: 1

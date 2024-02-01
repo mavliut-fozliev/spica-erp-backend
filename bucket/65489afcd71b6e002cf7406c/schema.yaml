@@ -6,6 +6,16 @@ primary: type
 readOnly: false
 history: false
 properties:
+  field_team:
+    type: relation
+    title: field_team
+    description: Ekip
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6576ddbbd71b6e002cfb2812
+    dependent: false
+    primary: team_name
   order_name:
     type: relation
     title: order_name
@@ -13,7 +23,7 @@ properties:
     options:
       position: bottom
     relationType: onetoone
-    bucketId: 6527b072ffa6b3002d10bfd3
+    bucketId: 656dcec7d71b6e002cfa1b15
     dependent: false
     primary: name
   customer:
@@ -50,22 +60,6 @@ properties:
     type: string
     title: product_serial_number
     description: Ünite Seri Numara
-    options:
-      position: bottom
-  field_team:
-    type: relation
-    title: field_team
-    description: Ekip
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 6576ddbbd71b6e002cfb2812
-    dependent: false
-    primary: team_name
-  task_name:
-    type: string
-    title: task_name
-    description: Görev Adı
     options:
       position: bottom
   start:
@@ -135,9 +129,16 @@ properties:
       - archived
     options:
       position: right
+  amount_of_days:
+    type: number
+    title: amount_of_days
+    description: Gün Sayısı
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
 order: 7
 category: pages
-required: []
+required:
+  - field_team

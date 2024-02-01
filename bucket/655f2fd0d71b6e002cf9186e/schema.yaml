@@ -2,16 +2,10 @@ _id: 655f2fd0d71b6e002cf9186e
 title: SAISProjects
 description: Projeler
 icon: view_stream
-primary: title
+primary: status
 readOnly: false
 history: false
 properties:
-  title:
-    type: string
-    title: title
-    description: Title of the row
-    options:
-      position: right
   ordered_project:
     type: relation
     title: ordered_project

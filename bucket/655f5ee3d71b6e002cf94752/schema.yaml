@@ -2,16 +2,10 @@ _id: 655f5ee3d71b6e002cf94752
 title: Overtime
 description: Describe your new bucket
 icon: view_stream
-primary: title
+primary: status
 readOnly: false
 history: false
 properties:
-  title:
-    type: string
-    title: title
-    description: Title of the row
-    options:
-      position: right
   status:
     type: string
     title: status
@@ -94,6 +88,13 @@ properties:
     description: Not
     options:
       position: bottom
+  overtime_amount:
+    type: number
+    title: overtime_amount
+    description: Description of the overtime_amount input
+    options:
+      position: bottom
+    default: 0
 acl:
   write: true==true
   read: true==true

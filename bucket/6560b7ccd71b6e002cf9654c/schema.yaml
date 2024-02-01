@@ -2,16 +2,10 @@ _id: 6560b7ccd71b6e002cf9654c
 title: OrderTrackingProjects
 description: Describe your new bucket
 icon: view_stream
-primary: title
+primary: status
 readOnly: false
 history: false
 properties:
-  title:
-    type: string
-    title: title
-    description: Title of the row
-    options:
-      position: right
   ordered_project:
     type: relation
     title: ordered_project

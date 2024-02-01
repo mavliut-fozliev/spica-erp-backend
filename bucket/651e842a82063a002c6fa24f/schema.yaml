@@ -32,7 +32,7 @@ properties:
   related_person_phone:
     type: string
     title: related_person_phone
-    description: İlgili Kişi Tel
+    description: İlgili Kişi Telefonu
     options:
       position: bottom
   related_person_role:
@@ -95,6 +95,8 @@ properties:
           description: Adet
           options:
             position: bottom
+      required: []
+    readOnly: false
   field_control_form:
     type: array
     title: field_control_form
@@ -213,4 +215,10 @@ order: 2
 required:
   - name
   - customer
+  - related_person
+  - related_person_phone
+  - related_person_role
+  - related_person_email
+  - reminder
+  - products
 category: pages

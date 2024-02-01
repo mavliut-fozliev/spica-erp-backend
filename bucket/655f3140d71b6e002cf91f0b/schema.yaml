@@ -2,16 +2,10 @@ _id: 655f3140d71b6e002cf91f0b
 title: AnnualLeave
 description: Izinler
 icon: view_stream
-primary: title
+primary: leave_type
 readOnly: false
 history: false
 properties:
-  title:
-    type: string
-    title: title
-    description: Title of the row
-    options:
-      position: right
   status:
     type: string
     title: status
@@ -36,6 +30,19 @@ properties:
     bucketId: 655cc987d71b6e002cf8b478
     dependent: false
     primary: name
+  leave_type:
+    type: string
+    title: leave_type
+    description: İzin Türü
+    options:
+      position: bottom
+    enum:
+      - YILLIK İZİN
+      - GÜNLÜK İZİN
+      - SAATLİK İZİN
+      - SAĞLIK İZNİ
+      - MAZERET İZNİ
+      - FAZLA MESAİ İZNİ
   start_date:
     type: date
     title: start_date
@@ -48,16 +55,6 @@ properties:
     description: Bitiş Tarihi
     options:
       position: bottom
-  leave_type:
-    type: string
-    title: leave_type
-    description: İzin Türü
-    options:
-      position: bottom
-    enum:
-      - yıllık
-      - günlük
-      - saatlik
   department_head_approval:
     type: boolean
     title: department_head_approval
@@ -78,6 +75,55 @@ properties:
     description: Not
     options:
       position: bottom
+  start_time:
+    type: date
+    title: start_time
+    description: Başlangıç Saati
+    options:
+      position: bottom
+  end_time:
+    type: date
+    title: end_time
+    description: Bitiş Saati
+    options:
+      position: bottom
+  leave_amount:
+    type: number
+    title: leave_amount
+    description: Description of the leave_amount input
+    options:
+      position: bottom
+    default: 0
+  medical_report:
+    type: array
+    title: medical_report
+    description: Sağlık Raporu
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  fmi_leave_amount:
+    type: number
+    title: fmi_leave_amount
+    description: Description of the fmi_leave_amount input
+    options:
+      position: bottom
+    default: 0
 acl:
   write: true==true
   read: true==true
@@ -85,3 +131,8 @@ order: 19
 category: pages
 required:
   - leave_type
+  - employee
+  - start_date
+  - end_date
+  - start_time
+  - end_time

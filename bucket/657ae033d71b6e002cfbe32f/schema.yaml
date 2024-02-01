@@ -13,7 +13,6 @@ properties:
     options:
       position: bottom
     enum:
-      - 2023
       - 2024
       - 2025
       - 2026
@@ -77,7 +76,7 @@ properties:
           options:
             position: bottom
           relationType: onetoone
-          bucketId: 6527b072ffa6b3002d10bfd3
+          bucketId: 65782dabd71b6e002cfb5489
           dependent: false
         location:
           type: relation
@@ -121,6 +120,7 @@ properties:
           enum:
             - MEK.MONTAJ
             - TEST
+            - ARA ÖDEME
         price_per_floor:
           type: number
           title: price_per_floor
@@ -139,6 +139,28 @@ properties:
           description: "%"
           options:
             position: bottom
+          enum:
+            - 0%
+            - 5%
+            - 10%
+            - 15%
+            - 20%
+            - 25%
+            - 30%
+            - 35%
+            - 40%
+            - 45%
+            - 50%
+            - 55%
+            - 60%
+            - 65%
+            - 70%
+            - 75%
+            - 80%
+            - 85%
+            - 90%
+            - 95%
+            - 100%
         fuel:
           type: number
           title: fuel
@@ -151,6 +173,24 @@ properties:
           description: Ödeme
           options:
             position: bottom
+        product:
+          type: relation
+          title: product
+          description: Ünite
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 651d84bc82063a002c6f9f9a
+          dependent: false
+        date:
+          type: date
+          title: date
+          description: Tarih
+          options:
+            position: bottom
+      required:
+        - work_status
+        - date
   status:
     type: string
     title: status
@@ -339,3 +379,4 @@ required:
   - month
   - year
   - team_name
+  - payments

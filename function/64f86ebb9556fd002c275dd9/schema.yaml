@@ -1,5 +1,5 @@
 _id: 64f86ebb9556fd002c275dd9
-name: Auth
+name: ☢️ Auth
 language: javascript
 timeout: 12
 triggers:
@@ -21,3 +21,4 @@ env:
   CLIENT_API_KEY: "{CLIENT_API_KEY}"
   SECRET_API_KEY: "{SECRET_API_KEY}"
 memoryLimit: 100
+order: 2

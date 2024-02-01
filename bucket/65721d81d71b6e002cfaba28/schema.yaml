@@ -2,16 +2,10 @@ _id: 65721d81d71b6e002cfaba28
 title: Contracts
 description: Describe your new bucket
 icon: view_stream
-primary: title
+primary: status
 readOnly: false
 history: false
 properties:
-  title:
-    type: string
-    title: title
-    description: Title of the row
-    options:
-      position: right
   project:
     type: relation
     title: project
@@ -59,7 +53,7 @@ properties:
     options:
       position: right
     items:
-      title: Title of the items
+      title: many
       type: object
       properties:
         storage:
@@ -75,6 +69,7 @@ properties:
           options:
             position: bottom
           default: false
+      description: many
   agreement_signed:
     type: array
     title: agreement_signed
@@ -101,7 +96,7 @@ properties:
   payment:
     type: array
     title: payment
-    description: Description of the payment input
+    description: Ödemeler
     options:
       position: right
     items:
@@ -111,25 +106,25 @@ properties:
         money:
           type: string
           title: money
-          description: Description of the money input
+          description: Ödeme Tutarı
           options:
             position: bottom
         date:
           type: string
           title: date
-          description: Description of the date input
+          description: Ödeme Tarihi
           options:
             position: bottom
         method:
           type: string
           title: method
-          description: Description of the method input
+          description: Ödeme Şekli
           options:
             position: bottom
         currency:
           type: string
           title: currency
-          description: Description of the currency input
+          description: Para Birimi
           options:
             position: bottom
   status:

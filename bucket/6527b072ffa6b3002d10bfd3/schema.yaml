@@ -149,15 +149,6 @@ properties:
           options:
             position: bottom
           default: false
-  product_serial_number:
-    type: array
-    title: product_serial_number
-    description: Ünite Seri Numara
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: string
   status:
     type: string
     title: status
@@ -172,6 +163,29 @@ properties:
       - archived
     options:
       position: right
+  product_serial_number:
+    type: array
+    title: product_serial_number
+    description: Ünite Seri Numara
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        serial_number:
+          type: string
+          title: serial_number
+          description: Ünite Seri Numara
+          options:
+            position: bottom
+        added_to_gantt_chart:
+          type: boolean
+          title: added_to_gantt_chart
+          description: Description of the added_to_gantt_chart input
+          options:
+            position: bottom
+          default: false
 acl:
   write: true==true
   read: true==true

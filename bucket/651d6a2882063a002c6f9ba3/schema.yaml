@@ -167,6 +167,43 @@ properties:
     description: Description of the proposed_solution_docx_data input
     options:
       position: right
+  related_person:
+    type: string
+    title: related_person
+    description: İlgili Kişi Adı
+    options:
+      position: bottom
+  related_person_phone:
+    type: string
+    title: related_person_phone
+    description: İlgili Kişi Telefonu
+    options:
+      position: bottom
+  related_person_role:
+    type: string
+    title: related_person_role
+    description: İlgili Kişi Görevi
+    options:
+      position: bottom
+  standby_time:
+    type: string
+    title: standby_time
+    description: Bekleme Süresi
+    options:
+      position: bottom
+  pended:
+    type: boolean
+    title: pended
+    description: Beklemeye Al
+    options:
+      position: bottom
+    default: false
+  offer_validity_period:
+    type: date
+    title: offer_validity_period
+    description: Teklif Geçerlilik Süresi
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
@@ -175,4 +212,3 @@ category: pages
 required:
   - project
   - product__from__project
-  - customer

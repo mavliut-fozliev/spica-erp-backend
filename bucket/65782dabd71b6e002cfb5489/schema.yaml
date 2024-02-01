@@ -2,17 +2,10 @@ _id: 65782dabd71b6e002cfb5489
 title: ProgressPayments
 description: Describe your new bucket
 icon: view_stream
-primary: subcontractor_name
+primary: name
 readOnly: false
 history: false
 properties:
-  added_to_assembly_program:
-    type: boolean
-    title: added_to_assembly_program
-    description: Montaj Programına Eklendi Mi?
-    options:
-      position: bottom
-    default: false
   project_name:
     type: relation
     title: project_name
@@ -20,7 +13,7 @@ properties:
     options:
       position: bottom
     relationType: onetoone
-    bucketId: 6527b072ffa6b3002d10bfd3
+    bucketId: 656dcec7d71b6e002cfa1b15
     dependent: false
     primary: name
   project_date:
@@ -33,12 +26,6 @@ properties:
     type: date
     title: assembly_start_date
     description: Montaj Başlangıç Tarihi
-    options:
-      position: bottom
-  subcontractor_name:
-    type: string
-    title: subcontractor_name
-    description: Taşeron Adı
     options:
       position: bottom
   location:
@@ -120,7 +107,7 @@ properties:
         payment_description:
           type: string
           title: payment_description
-          description: Ödeme Açıklaması
+          description: Ödemeye Ait Kat Başı Fiyatı
           options:
             position: bottom
         payment_date:
@@ -139,12 +126,6 @@ properties:
           type: string
           title: fuel_description
           description: Yakıt Açıklaması
-          options:
-            position: bottom
-        fuel_payment_date:
-          type: date
-          title: fuel_payment_date
-          description: Yakıt Ödemesi Tarihi
           options:
             position: bottom
   fuel_liter_price:
@@ -241,8 +222,26 @@ properties:
           description: Tarih
           options:
             position: bottom
+  name:
+    type: string
+    title: name
+    description: Description of the name input
+    options:
+      position: bottom
+  subcontractor:
+    type: relation
+    title: subcontractor
+    description: Taşeron
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6576ddbbd71b6e002cfb2812
+    dependent: false
+    primary: team_name
 acl:
   write: true==true
   read: true==true
 order: 10
 category: pages
+required:
+  - subcontractor

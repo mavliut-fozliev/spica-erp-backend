@@ -15,7 +15,7 @@ properties:
   tc_identity:
     type: string
     title: tc_identity
-    description: Tckimlik
+    description: Kimlik Numarası
     options:
       position: bottom
   job:
@@ -34,13 +34,12 @@ properties:
       - Bakım Müdürü
       - Bakım Süpervizorü
       - Bakım Teknisyeni
-      - Saha Mühendisi
-      - Saha Süpervizörü
       - FQE Mühendisi
       - SAIS Mühendisi
       - Satın Alma & Depo Personeli
       - Depo Personeli
       - Yardımcı Personel
+      - Taşeron
   department:
     type: string
     title: department
@@ -51,12 +50,12 @@ properties:
       - Yönetim
       - Muhasebe
       - Bakım
-      - Saha
       - FQE
       - SAIS
       - Satın Alma & Depo
       - Depo
       - Genel
+      - Taşeron
   birth_date:
     type: date
     title: birth_date
@@ -358,6 +357,58 @@ properties:
           options:
             position: bottom
           default: false
+  nationality:
+    type: string
+    title: nationality
+    description: Uyruk
+    options:
+      position: bottom
+  passport_number:
+    type: string
+    title: passport_number
+    description: Pasaport Numarası
+    options:
+      position: bottom
+  total_leave:
+    type: number
+    title: total_leave
+    description: Description of the total_leave input
+    options:
+      position: bottom
+    default: 126
+  used_leave:
+    type: number
+    title: used_leave
+    description: Description of the used_leave input
+    options:
+      position: bottom
+    default: 0
+  remaining_leave:
+    type: string
+    title: remaining_leave
+    description: Kalan İzin Gün Sayısı
+    options:
+      position: bottom
+  fmi_total_leave:
+    type: number
+    title: fmi_total_leave
+    description: Description of the fmi_total_leave input
+    options:
+      position: bottom
+    default: 0
+  fmi_used_leave:
+    type: number
+    title: fmi_used_leave
+    description: Description of the fmi_used_leave input
+    options:
+      position: bottom
+    default: 0
+  fmi_remaining_leave:
+    type: string
+    title: fmi_remaining_leave
+    description: Kalan Fazla Mesai İzin Gün Sayısı
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
@@ -368,3 +419,4 @@ required:
   - tc_identity
   - job
   - department
+  - nationality

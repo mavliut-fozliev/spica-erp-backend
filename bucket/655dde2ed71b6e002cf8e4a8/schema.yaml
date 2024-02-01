@@ -62,15 +62,24 @@ properties:
           options:
             position: bottom
   equipments:
-    type: relation
+    type: array
     title: equipments
     description: Ekipmanlar
     options:
       position: bottom
-    relationType: onetomany
-    bucketId: 655dea3ad71b6e002cf8eee1
-    dependent: false
-    primary: name
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        equipment:
+          type: relation
+          title: equipment
+          description: Ekipman
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 655dea3ad71b6e002cf8eee1
+          dependent: false
   cautions_and_punishments:
     type: array
     title: cautions_and_punishments

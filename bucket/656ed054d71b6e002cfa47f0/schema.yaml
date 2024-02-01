@@ -2,14 +2,14 @@ _id: 656ed054d71b6e002cfa47f0
 title: FieldInspections
 description: Describe your new bucket
 icon: view_stream
-primary: field_name
+primary: project_and_product_serial_number
 readOnly: false
 history: false
 properties:
-  field_name:
+  project_and_product_serial_number:
     type: string
-    title: field_name
-    description: Saha Adı
+    title: project_and_product_serial_number
+    description: Ünite
     options:
       position: bottom
   information:
@@ -34,6 +34,12 @@ properties:
           description: Tarih
           options:
             position: bottom
+        next_date:
+          type: date
+          title: next_date
+          description: Bir Sonraki Kontrol Tarihi
+          options:
+            position: bottom
   status:
     type: string
     title: status
@@ -53,3 +59,4 @@ acl:
   read: true==true
 order: 9
 category: pages
+required: []
