@@ -15,15 +15,11 @@ properties:
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     default: exist
     enum:
       - exist
       - deleted
-      - archived
     options:
       position: right
   test_boolean:

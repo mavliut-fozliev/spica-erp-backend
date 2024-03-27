@@ -193,21 +193,25 @@ properties:
     options:
       position: left
     readOnly: false
-    default: :created_at
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     default: exist
     enum:
       - exist
       - deleted
-      - archived
     options:
       position: right
+  location:
+    type: relation
+    title: location
+    description: Lokasyon
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6579a793d71b6e002cfbabb6
+    dependent: false
 acl:
   write: true==true
   read: true==true

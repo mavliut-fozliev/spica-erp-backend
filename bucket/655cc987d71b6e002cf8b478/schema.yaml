@@ -72,14 +72,13 @@ properties:
     type: string
     title: status
     description: |-
-      -exist
-      -deleted
-      -archived
+      Aktif
+      Pasif
     default: exist
     enum:
       - exist
       - deleted
-      - archived
+      - passive
     options:
       position: right
   diploma:
@@ -321,13 +320,6 @@ properties:
           options:
             position: bottom
           default: false
-  make_passive:
-    type: boolean
-    title: make_passive
-    description: İşten Çıkar
-    options:
-      position: bottom
-    default: false
   dismissal_date:
     type: date
     title: dismissal_date
@@ -415,8 +407,4 @@ acl:
 order: 18
 category: pages
 required:
-  - name
-  - tc_identity
-  - job
-  - department
   - nationality

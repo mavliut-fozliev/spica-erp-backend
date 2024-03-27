@@ -2,246 +2,45 @@ _id: 65782dabd71b6e002cfb5489
 title: ProgressPayments
 description: Describe your new bucket
 icon: view_stream
-primary: name
+primary: status
 readOnly: false
 history: false
 properties:
-  project_name:
-    type: relation
-    title: project_name
-    description: Proje Adı
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 656dcec7d71b6e002cfa1b15
-    dependent: false
-    primary: name
   project_date:
     type: date
     title: project_date
     description: Proje Yılı
     options:
       position: bottom
-  assembly_start_date:
-    type: date
-    title: assembly_start_date
-    description: Montaj Başlangıç Tarihi
-    options:
-      position: bottom
-  location:
-    type: relation
-    title: location
-    description: Lokasyon
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 6579a793d71b6e002cfbabb6
-    dependent: false
-    primary: name
-  model:
-    type: string
-    title: model
-    description: Model
-    options:
-      position: bottom
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     default: exist
     enum:
       - exist
       - deleted
-      - archived
     options:
       position: right
-  capacity:
-    type: string
-    title: capacity
-    description: Kapasite
-    options:
-      position: bottom
-  number_of_stops:
-    type: number
-    title: number_of_stops
-    description: Durak Sayısı
-    options:
-      position: bottom
-  high_floor:
-    type: number
-    title: high_floor
-    description: Yüksek Kat
-    options:
-      position: bottom
-  price_per_floor:
-    type: number
-    title: price_per_floor
-    description: Kat Başı Fiyat
-    options:
-      position: bottom
-  total_installation_fee:
-    type: number
-    title: total_installation_fee
-    description: Toplam Montaj Bedeli
-    options:
-      position: bottom
-  payments:
-    type: array
-    title: payments
-    description: Ödemeler
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        payment:
-          type: number
-          title: payment
-          description: Ödeme
-          options:
-            position: bottom
-        payment_description:
-          type: string
-          title: payment_description
-          description: Ödemeye Ait Kat Başı Fiyatı
-          options:
-            position: bottom
-        payment_date:
-          type: date
-          title: payment_date
-          description: Ödeme Tarihi
-          options:
-            position: bottom
-        fuel_cost:
-          type: number
-          title: fuel_cost
-          description: Yakıt Bedeli
-          options:
-            position: bottom
-        fuel_description:
-          type: string
-          title: fuel_description
-          description: Yakıt Açıklaması
-          options:
-            position: bottom
-  fuel_liter_price:
-    type: number
-    title: fuel_liter_price
-    description: Yakıt Litre Fiyatı
-    options:
-      position: bottom
-  fuel:
-    type: number
-    title: fuel
-    description: Yakıt
-    options:
-      position: bottom
-  price_difference_payment:
-    type: number
-    title: price_difference_payment
-    description: Fiyat Farkı Ödemesi
-    options:
-      position: bottom
-  total_price_from_this_product:
-    type: number
-    title: total_price_from_this_product
-    description: Bu Üniteden Alması Gereken Toplam Bedel
-    options:
-      position: bottom
-  advance_payment:
-    type: number
-    title: advance_payment
-    description: Avans
-    options:
-      position: bottom
-  advance_payment_description:
-    type: string
-    title: advance_payment_description
-    description: Avans Açıklaması
-    options:
-      position: bottom
-  advance_payment_date:
-    type: date
-    title: advance_payment_date
-    description: Avans Tarihi
-    options:
-      position: bottom
-  deducted_money:
-    type: number
-    title: deducted_money
-    description: Yapılan Kesinti
-    options:
-      position: bottom
-  deducted_money_description:
-    type: string
-    title: deducted_money_description
-    description: Kesinti Açıklaması
-    options:
-      position: bottom
-  deducted_money_date:
-    type: date
-    title: deducted_money_date
-    description: Kesinti Tarihi
-    options:
-      position: bottom
-  payment_made:
-    type: number
-    title: payment_made
-    description: Yapılan Ödeme
-    options:
-      position: bottom
-  finality:
-    type: number
-    title: finality
-    description: Son Durum
-    options:
-      position: bottom
-  notes:
-    type: array
-    title: notes
-    description: Notlar
-    options:
-      position: bottom
-    items:
-      title: flex
-      type: object
-      properties:
-        note:
-          type: textarea
-          title: note
-          description: Not
-          options:
-            position: bottom
-        date:
-          type: date
-          title: date
-          description: Tarih
-          options:
-            position: bottom
-  name:
-    type: string
-    title: name
-    description: Description of the name input
-    options:
-      position: bottom
-  subcontractor:
+  project:
     type: relation
-    title: subcontractor
-    description: Taşeron
+    title: project
+    description: Proje Adı
     options:
       position: bottom
     relationType: onetoone
-    bucketId: 6576ddbbd71b6e002cfb2812
+    bucketId: 651e842a82063a002c6fa24f
     dependent: false
-    primary: team_name
+    primary: name
+  product_index_from_order:
+    type: number
+    title: product_index_from_order
+    description: Ünite
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
 order: 10
 category: pages
-required:
-  - subcontractor
+required: []

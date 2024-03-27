@@ -26,32 +26,12 @@ properties:
     bucketId: 651d309082063a002c6f9851
     dependent: false
     primary: name
-  offer:
-    type: relation
-    title: offer
-    description: Teklif RefNo
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651d6a2882063a002c6f9ba3
-    dependent: false
-    primary: reference_number
-  product:
-    type: relation
-    title: product
-    description: Ünite
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651d84bc82063a002c6f9f9a
-    dependent: false
-    primary: name
   agreement:
     type: array
     title: agreement
     description: Sözleşme Dosyası
     options:
-      position: right
+      position: left
     items:
       title: many
       type: object
@@ -103,48 +83,73 @@ properties:
       title: Title of the items
       type: object
       properties:
-        money:
-          type: string
-          title: money
-          description: Ödeme Tutarı
-          options:
-            position: bottom
-        date:
-          type: string
-          title: date
-          description: Ödeme Tarihi
-          options:
-            position: bottom
         method:
           type: string
           title: method
           description: Ödeme Şekli
           options:
             position: bottom
-        currency:
+          enum:
+            - döviz çeki
+            - barter
+        date:
+          type: date
+          title: date
+          description: Ödeme Tarihi
+          options:
+            position: bottom
+        money_amount:
           type: string
-          title: currency
-          description: Para Birimi
+          title: money_amount
+          description: Ödeme Tutarı
           options:
             position: bottom
   status:
     type: string
     title: status
     description: |-
-      -exist
-      -deleted
-      -archived
+      Takipteki
+      İmzalanan
+      İmzalanmayan
     default: exist
     enum:
       - exist
       - deleted
-      - archived
+      - signed
+      - unsigned
     options:
       position: right
+  product_count:
+    type: number
+    title: product_count
+    description: Ünite Adet
+    options:
+      position: bottom
+  delivery_time:
+    type: string
+    title: delivery_time
+    description: Teslim Süresi
+    options:
+      position: bottom
+  agreement_date:
+    type: date
+    title: agreement_date
+    description: Sözleşme Tarihi
+    options:
+      position: bottom
+  offers:
+    type: relation
+    title: offers
+    description: Description of the offers input
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 651d6a2882063a002c6f9ba3
+    dependent: false
+    primary: reference_number
 acl:
   write: true==true
   read: true==true
 order: 4
 category: pages
-required:
-  - offer
+required: []

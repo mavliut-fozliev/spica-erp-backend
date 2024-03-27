@@ -9,10 +9,8 @@ export function addStatusFieldToBucket(change) {
                 ...change.document.properties, status: {
                     type: 'string',
                     title: 'status',
-                    description: '-exist\n-deleted\n-archived',
                     default: 'exist',
-                    enum: ["exist", "deleted", "archived"],
-                    options: { position: 'right' }
+                    enum: ["exist", "deleted"],
                 }
             }
         })

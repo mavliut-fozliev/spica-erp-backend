@@ -2,28 +2,18 @@ _id: 655dde2ed71b6e002cf8e4a8
 title: Employees-OHS
 description: Personeller
 icon: view_stream
-primary: name
+primary: status
 readOnly: false
 history: false
 properties:
-  name:
-    type: string
-    title: name
-    description: Description of the name input
-    options:
-      position: right
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     default: exist
     enum:
       - exist
       - deleted
-      - archived
     options:
       position: right
   employee:
@@ -61,25 +51,6 @@ properties:
           description: Not
           options:
             position: bottom
-  equipments:
-    type: array
-    title: equipments
-    description: Ekipmanlar
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        equipment:
-          type: relation
-          title: equipment
-          description: Ekipman
-          options:
-            position: bottom
-          relationType: onetoone
-          bucketId: 655dea3ad71b6e002cf8eee1
-          dependent: false
   cautions_and_punishments:
     type: array
     title: cautions_and_punishments
@@ -106,6 +77,51 @@ properties:
           type: textarea
           title: notes
           description: Notlar
+          options:
+            position: bottom
+        file:
+          type: array
+          title: file
+          description: Dosya
+          options:
+            position: bottom
+          items:
+            title: Title of the items
+            type: object
+            properties:
+              storage:
+                type: storage
+                title: storage
+                description: Description of the storage input
+                options:
+                  position: bottom
+              deleted:
+                type: boolean
+                title: deleted
+                description: Description of the deleted input
+                options:
+                  position: bottom
+                default: false
+  equipments:
+    type: array
+    title: equipments
+    description: Ekipmanlar
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        name:
+          type: string
+          title: name
+          description: Adı
+          options:
+            position: bottom
+        amount:
+          type: number
+          title: amount
+          description: Adet
           options:
             position: bottom
 acl:

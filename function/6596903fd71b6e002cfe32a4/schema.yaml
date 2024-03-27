@@ -9,34 +9,16 @@ triggers:
     options:
       bucket: 651e842a82063a002c6fa24f
       type: ALL
-  onContractsDataChange:
-    options:
-      bucket: 65721d81d71b6e002cfaba28
-      type: ALL
-    type: bucket
-    active: true
   changeOfferStandbyTime:
     options:
       timezone: UTC
-      frequency: 0 0 * * *
+      frequency: 0 * * * *
     type: schedule
-    active: true
-  onProgressPaymentsDataChange:
-    options:
-      bucket: 65782dabd71b6e002cfb5489
-      type: ALL
-    type: bucket
     active: true
   onMonthlyProgressPaymentsDataChange:
     options:
       bucket: 657ae033d71b6e002cfbe32f
       type: ALL
-    type: bucket
-    active: true
-  onGanttChartDataChange:
-    options:
-      bucket: 65489afcd71b6e002cf7406c
-      type: INSERT
     type: bucket
     active: true
   changeEmployeesEveryDay:

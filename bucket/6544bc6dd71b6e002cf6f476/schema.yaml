@@ -36,75 +36,6 @@ properties:
       - custom
       - customFormData
     default: table
-  sections:
-    type: array
-    title: sections
-    description: Description of the sections input
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        title:
-          type: string
-          title: title
-          description: Description of the title input
-          options:
-            position: bottom
-        description:
-          type: string
-          title: description
-          description: Description of the description input
-          options:
-            position: bottom
-        criterion:
-          type: string
-          title: criterion
-          description: Description of the criterion input
-          options:
-            position: bottom
-        value:
-          type: string
-          title: value
-          description: Description of the value input
-          options:
-            position: bottom
-        download_initially:
-          type: boolean
-          title: download_initially
-          description: Description of the download_initially input
-          options:
-            position: bottom
-          default: false
-        exclude:
-          type: array
-          title: exclude
-          description: Description of the exclude input
-          options:
-            position: bottom
-          items:
-            title: Title of the items
-            type: object
-            properties:
-              property_name:
-                type: string
-                title: property_name
-                description: Description of the property_name input
-                options:
-                  position: bottom
-              value:
-                type: string
-                title: value
-                description: Description of the value input
-                options:
-                  position: bottom
-  main_section_name:
-    type: string
-    title: main_section_name
-    description: Description of the main_section_name input
-    options:
-      position: bottom
   field_features:
     type: array
     title: field_features
@@ -207,6 +138,13 @@ properties:
           options:
             position: bottom
           default: 6
+        support:
+          type: string
+          title: support
+          description: the demonstrative field needs support (relation field) from which
+            it will receive data
+          options:
+            position: bottom
   internal_field_features:
     type: array
     title: internal_field_features
@@ -281,7 +219,14 @@ properties:
   page_features:
     type: array
     title: page_features
-    description: Description of the page_features input
+    description: >-
+      no_new_button: removes the create button
+
+      no_remove_button: removes the delete button
+
+      cancel_movement_between_sections: removes the button to move between sections
+
+      cancel_movement_between_sections_during_creation: cancels movement between sections while creating a new object
     options:
       position: bottom
     items:

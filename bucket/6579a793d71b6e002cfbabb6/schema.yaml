@@ -34,13 +34,13 @@ properties:
         from:
           type: number
           title: from
-          description: İlk Durak
+          description: Bu kattan
           options:
             position: bottom
         to:
           type: number
           title: to
-          description: Son Durak
+          description: Bu kata kadar
           options:
             position: bottom
         unit_installation_day:
@@ -76,15 +76,11 @@ properties:
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     default: exist
     enum:
       - exist
       - deleted
-      - archived
     options:
       position: right
 acl:

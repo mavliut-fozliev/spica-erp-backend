@@ -26,22 +26,6 @@ properties:
     bucketId: 651e842a82063a002c6fa24f
     dependent: false
     primary: name
-  product__from__project:
-    type: relation
-    title: product__from__project
-    description: Ünite
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651d84bc82063a002c6f9f9a
-    dependent: false
-    primary: name
-  product_count:
-    type: number
-    title: product_count
-    description: Ünite Adet
-    options:
-      position: bottom
   reference_number:
     type: string
     title: reference_number
@@ -117,6 +101,268 @@ properties:
     options:
       position: right
     items:
+      title: many
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+      description: many
+  status:
+    type: string
+    title: status
+    description: |-
+      Takipteki
+      Onaylanan
+      Onaylanmayan
+      Beklemeye Alınan
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - confirmed
+      - unapproved
+      - pended
+      - revised
+    options:
+      position: right
+  created_date:
+    type: date
+    title: created_date
+    description: Oluşturma Tarihi
+    options:
+      position: left
+    default: :created_at
+  standby_time:
+    type: string
+    title: standby_time
+    description: Bekleme Süresi
+    options:
+      position: bottom
+  offer_validity_period:
+    type: date
+    title: offer_validity_period
+    description: Teklif Geçerlilik Süresi
+    options:
+      position: bottom
+  products:
+    type: array
+    title: products
+    description: Üniteler
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        product:
+          type: relation
+          title: product
+          description: Ünite
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 651d84bc82063a002c6f9f9a
+          dependent: false
+        docx_data:
+          type: array
+          title: docx_data
+          description: Özellikler
+          options:
+            position: bottom
+          items:
+            title: Title of the items
+            type: string
+        count:
+          type: number
+          title: count
+          description: Adet
+          options:
+            position: bottom
+  delivery_time:
+    type: string
+    title: delivery_time
+    description: Teslim Süresi
+    options:
+      position: bottom
+  birim:
+    type: string
+    title: birim
+    description: Birim
+    options:
+      position: bottom
+    enum:
+      - $
+      - ₺
+      - €
+  kdv:
+    type: number
+    title: kdv
+    description: KDV
+    options:
+      position: bottom
+    default: 16
+  confirmed_revise_index:
+    type: string
+    title: confirmed_revise_index
+    description: Description of the confirmed_revise_index input
+    options:
+      position: bottom
+  draft_drawing_1:
+    type: array
+    title: draft_drawing_1
+    description: Description of the draft_drawing_1 input
+    options:
+      position: bottom
+    items:
+      title: img
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  draft_drawing_2:
+    type: array
+    title: draft_drawing_2
+    description: Description of the draft_drawing_2 input
+    options:
+      position: bottom
+    items:
+      title: img
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  draft_drawing_3:
+    type: array
+    title: draft_drawing_3
+    description: Description of the draft_drawing_3 input
+    options:
+      position: bottom
+    items:
+      title: img
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  draft_drawing_4:
+    type: array
+    title: draft_drawing_4
+    description: Description of the draft_drawing_4 input
+    options:
+      position: bottom
+    items:
+      title: img
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  draft_drawing_5:
+    type: array
+    title: draft_drawing_5
+    description: Description of the draft_drawing_5 input
+    options:
+      position: bottom
+    items:
+      title: img
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  draft_drawing_6:
+    type: array
+    title: draft_drawing_6
+    description: Description of the draft_drawing_6 input
+    options:
+      position: bottom
+    items:
+      title: img
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  draft_drawing_7:
+    type: array
+    title: draft_drawing_7
+    description: Description of the draft_drawing_7 input
+    options:
+      position: bottom
+    items:
       title: Title of the items
       type: object
       properties:
@@ -133,82 +379,78 @@ properties:
           options:
             position: bottom
           default: false
-  confirmed:
-    type: boolean
-    title: confirmed
-    description: Onay durumu
+  draft_drawing_8:
+    type: array
+    title: draft_drawing_8
+    description: Description of the draft_drawing_8 input
     options:
       position: bottom
-    default: false
-  status:
-    type: string
-    title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
-    default: exist
-    enum:
-      - exist
-      - deleted
-      - archived
-    options:
-      position: right
-  created_date:
-    type: date
-    title: created_date
-    description: Oluşturma Tarihi
-    options:
-      position: left
-    default: :created_at
-  proposed_solution_docx_data:
-    type: string
-    title: proposed_solution_docx_data
-    description: Description of the proposed_solution_docx_data input
-    options:
-      position: right
-  related_person:
-    type: string
-    title: related_person
-    description: İlgili Kişi Adı
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  draft_drawing_9:
+    type: array
+    title: draft_drawing_9
+    description: Description of the draft_drawing_9 input
     options:
       position: bottom
-  related_person_phone:
-    type: string
-    title: related_person_phone
-    description: İlgili Kişi Telefonu
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  draft_drawing_10:
+    type: array
+    title: draft_drawing_10
+    description: Description of the draft_drawing_10 input
     options:
       position: bottom
-  related_person_role:
-    type: string
-    title: related_person_role
-    description: İlgili Kişi Görevi
-    options:
-      position: bottom
-  standby_time:
-    type: string
-    title: standby_time
-    description: Bekleme Süresi
-    options:
-      position: bottom
-  pended:
-    type: boolean
-    title: pended
-    description: Beklemeye Al
-    options:
-      position: bottom
-    default: false
-  offer_validity_period:
-    type: date
-    title: offer_validity_period
-    description: Teklif Geçerlilik Süresi
-    options:
-      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
 acl:
   write: true==true
   read: true==true
 order: 3
 category: pages
-required:
-  - project
-  - product__from__project
+required: []

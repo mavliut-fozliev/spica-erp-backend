@@ -39,17 +39,13 @@ properties:
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     options:
       position: right
     default: exist
     enum:
       - exist
       - deleted
-      - archived
 acl:
   write: true==true
   read: true==true

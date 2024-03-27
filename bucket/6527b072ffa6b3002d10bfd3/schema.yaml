@@ -2,16 +2,10 @@ _id: 6527b072ffa6b3002d10bfd3
 title: Orders
 description: Siparişler
 icon: view_stream
-primary: name
+primary: notes_for_assembly
 readOnly: false
 history: false
 properties:
-  name:
-    type: string
-    title: name
-    description: Adı
-    options:
-      position: right
   customer:
     type: relation
     title: customer
@@ -32,32 +26,6 @@ properties:
     bucketId: 651e842a82063a002c6fa24f
     dependent: false
     primary: name
-  offer:
-    type: relation
-    title: offer
-    description: Teklif RefNo
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651d6a2882063a002c6f9ba3
-    dependent: false
-    primary: reference_number
-  product:
-    type: relation
-    title: product
-    description: Ünite
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651d84bc82063a002c6f9f9a
-    dependent: false
-    primary: name
-  product_count:
-    type: number
-    title: product_count
-    description: Ünite Adet
-    options:
-      position: bottom
   delivery_date:
     type: date
     title: delivery_date
@@ -152,15 +120,11 @@ properties:
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     default: exist
     enum:
       - exist
       - deleted
-      - archived
     options:
       position: right
   product_serial_number:
@@ -182,10 +146,46 @@ properties:
         added_to_gantt_chart:
           type: boolean
           title: added_to_gantt_chart
-          description: Description of the added_to_gantt_chart input
+          description: Montaj Planına Eklendi
           options:
             position: bottom
           default: false
+        product:
+          type: relation
+          title: product
+          description: Ünite
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 651d84bc82063a002c6f9f9a
+          dependent: false
+        offer:
+          type: relation
+          title: offer
+          description: Description of the offer input
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 651d6a2882063a002c6f9ba3
+          dependent: false
+        product_index:
+          type: number
+          title: product_index
+          description: Description of the product_index input
+          options:
+            position: bottom
+        row_index:
+          type: number
+          title: row_index
+          description: Description of the row_index input
+          options:
+            position: bottom
+        unit_index:
+          type: number
+          title: unit_index
+          description: Description of the unit_index input
+          options:
+            position: bottom
 acl:
   write: true==true
   read: true==true

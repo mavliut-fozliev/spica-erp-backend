@@ -4,25 +4,26 @@ import dayjs from "dayjs";
 
 //Projects
 export async function onProjectsDataChange(change) {
-    Bucket.initialize({ apikey: env.CLIENT_API_KEY })
-    const currentProject = change.current
-    const offers = await Bucket.data.getAll(env.OFFERS_BUCKET_ID)
-    const targetOffers = offers.filter(offer => offer.project === change.documentKey)
     if (change.kind === "update") {
+        Bucket.initialize({ apikey: env.CLIENT_API_KEY })
+        const currentProject = change.current
+        const targetOffers = await Bucket.data.getAll(env.OFFERS_BUCKET_ID,
+            {
+                queryParams: {
+                    filter: {
+                        project: { $eq: change.documentKey }
+                    }
+                }
+            }
+        )
         currentProject.status === "deleted" ?
             targetOffers.forEach(offer =>
                 Bucket.data.patch(env.OFFERS_BUCKET_ID, offer._id, {
                     customer: null,
-                    related_person: "",
-                    related_person_phone: "",
-                    related_person_role: "",
                 }).catch(console.error)
             ) : targetOffers.forEach(offer =>
                 Bucket.data.patch(env.OFFERS_BUCKET_ID, offer._id, {
                     customer: currentProject.customer,
-                    related_person: currentProject.related_person,
-                    related_person_phone: currentProject.related_person_phone,
-                    related_person_role: currentProject.related_person_role,
                 }))
     }
 }
@@ -35,125 +36,56 @@ export async function changeOfferStandbyTime(change) {
         const currentDate = new Date();
         const targetDate = new Date(offer.created_date);
         const differenceInMilliseconds = currentDate.getTime() - targetDate.getTime();
-        const differenceInDays = Math.round(differenceInMilliseconds / (1000 * 60 * 60 * 24));
+        const differenceInDays = Math.round(differenceInMilliseconds / (1000 * 3600 * 24));
         Bucket.data.patch(env.OFFERS_BUCKET_ID, offer._id, {
             standby_time: differenceInDays.toString() + " gün",
         })
     })
 }
 
-//Contracts
-export async function onContractsDataChange(change) {
-    Bucket.initialize({ apikey: env.CLIENT_API_KEY })
-    if ((change.kind === 'update' || change.kind === 'insert') && change.current.agreement_signed) {
-        const orders = await Bucket.data.getAll(env.ORDERS_BUCKET_ID)
-        const order = orders.find(order => order.offer === change.current.offer)
-        const offer = await Bucket.data.get(env.OFFERS_BUCKET_ID, change.current.offer, {
-            queryParams: {
-                relation: true,
-            },
-        })
-        if (!order) {
-            const newOrder = await Bucket.data.insert(env.ORDERS_BUCKET_ID, {
-                name: (offer.project.name).slice(0, 30) + " - " + offer.reference_number,
-                offer: offer._id,
-                customer: offer.customer._id,
-                project: offer.project._id,
-                product: offer.product__from__project._id,
-                product_count: offer.product_count,
-                product_serial_number: Array.from({ length: offer.product_count }, (_, index) =>
-                    ({ serial_number: offer.reference_number + " ~ No " + (index + 1).toString() }))
-            })
-            Bucket.data.insert(env.ORDERTRACKING_BUCKET_ID, {
-                ordered_project: newOrder?._id
-            })
-            Bucket.data.insert(env.SAIS_BUCKET_ID, {
-                ordered_project: newOrder?._id
-            })
-            Bucket.data.insert(env.ASSEMBLYPROJECTS_BUCKET_ID, {
-                name: (offer.project.name)?.slice(0, 30) + " - " + offer.reference_number,
-                ordered_project: newOrder?._id
-            })
-            offer.product_count?.forEach((prod, index) => {
-                Bucket.data.insert(env.FIELDINSPECTIONS_BUCKET_ID, {
-                    project_and_product_serial_number: (offer.project.name).slice(0, 30) + " - " + offer.reference_number +
-                        ", No: " + offer.reference_number + " ~ No " + (index + 1).toString()
-                })
-            })
-        }
-    }
-}
-
-//GanttChart
-export async function onGanttChartDataChange(change) {
-    Bucket.initialize({ apikey: env.CLIENT_API_KEY })
-    const product_serial_number = change.current.product_serial_number
-    const assemblyProject = await Bucket.data.get(env.ASSEMBLYPROJECTS_BUCKET_ID, change.current.order_name, { queryParams: { relation: true } })
-    const order = await Bucket.data.get(env.ORDERS_BUCKET_ID, assemblyProject.ordered_project._id)
-    await Bucket.data.patch(env.ORDERS_BUCKET_ID, assemblyProject.ordered_project._id, {
-        product_serial_number: order.product_serial_number.map(
-            row => row.serial_number === product_serial_number ? { ...row, added_to_gantt_chart: true } : row
-        )
-    })
-    const updatedOrder = await Bucket.data.get(env.ORDERS_BUCKET_ID, order._id)
-    const allProductsAddedToGanttChart = updatedOrder.product_serial_number.every(elem => elem.added_to_gantt_chart === true)
-    if (allProductsAddedToGanttChart) {
-        Bucket.data.patch(env.ASSEMBLYPROJECTS_BUCKET_ID, change.current.order_name, { fully_added_to_gantt_chart: true })
-    }
-}
-
-//ProgressPayments
-export async function onProgressPaymentsDataChange(change) {
-    Bucket.initialize({ apikey: env.CLIENT_API_KEY })
-    if ((change.kind === 'update' || change.kind === 'insert')) {
-        const project = await Bucket.data.get(env.ORDERS_BUCKET_ID, change.current.project_name)
-        Bucket.data.patch(change.bucket, change.current._id, { name: project.name })
-    }
-}
-
 //MonthlyProgressPayments
 export async function onMonthlyProgressPaymentsDataChange(change) {
-    Bucket.initialize({ apikey: env.CLIENT_API_KEY })
-    const targetProjects = change.current.payments.map(p => p.project)
-    const monthlyProgressPayments = await Bucket.data.getAll(env.MONTHLYPROGRESSPAYMENTS_BUCKET_ID, {
-        queryParams: {
-            filter: { status: { $ne: "deleted" } }
-        }
-    })
-    targetProjects.forEach(async (project) => {
-        const payments = []
-        let newPricePerFloor = 0
-        let singlePayment = 0
-        monthlyProgressPayments.forEach(p => {
-            p.payments?.forEach(payment => {
-                if (payment.project === project) {
-                    newPricePerFloor = payment.price_per_floor
-                    singlePayment = payment.payment
-                    payments.push({
-                        fuel_cost: payment.fuel,
-                        fuel_description: payment.work_status + " " + payment.work_percentage,
-                        payment: payment.payment,
-                        payment_description: payment.price_per_floor.toString(),
-                        payment_date: payment.date,
-                    })
-                }
-            })
-        })
+    // Bucket.initialize({ apikey: env.CLIENT_API_KEY })
+    // const targetProjects = change.current.payments.map(p => p.project)
+    // const monthlyProgressPayments = await Bucket.data.getAll(env.MONTHLYPROGRESSPAYMENTS_BUCKET_ID, {
+    //     queryParams: {
+    //         filter: { status: { $ne: "deleted" } }
+    //     }
+    // })
+    // targetProjects.forEach(async (project) => {
+    //     const payments = []
+    //     let newPricePerFloor = 0
+    //     let singlePayment = 0
+    //     monthlyProgressPayments.forEach(p => {
+    //         p.payments?.forEach(payment => {
+    //             if (payment.project === project) {
+    //                 newPricePerFloor = payment.price_per_floor
+    //                 singlePayment = payment.payment
+    //                 payments.push({
+    //                     fuel_cost: payment.fuel,
+    //                     fuel_description: payment.work_status + " " + payment.work_percentage,
+    //                     payment: payment.payment,
+    //                     payment_description: payment.price_per_floor.toString(),
+    //                     payment_date: payment.date,
+    //                 })
+    //             }
+    //         })
+    //     })
 
-        const currentProject = await Bucket.data.get(env.PROGRESSPAYMENTS_BUCKET_ID, project);
+    //     const currentProject = await Bucket.data.get(env.PROGRESSPAYMENTS_BUCKET_ID, project);
 
-        const oldPricePerFloor = currentProject.price_per_floor
+    //     const oldPricePerFloor = currentProject.price_per_floor
 
-        const payment_made =
-            (payments.reduce((acc, current) => acc + (current.payment || 0) + (current.fuel_cost || 0), 0) || 0)
-            + (currentProject.advance_payment || 0);
+    //     const payment_made =
+    //         (payments.reduce((acc, current) => acc + (current.payment || 0) + (current.fuel_cost || 0), 0) || 0)
+    //         + (currentProject.advance_payment || 0);
 
-        const price_difference_payment = ((newPricePerFloor - oldPricePerFloor) / newPricePerFloor) * singlePayment
+    //     const price_difference_payment = ((newPricePerFloor - oldPricePerFloor) / newPricePerFloor) * singlePayment
 
-        const finality = (currentProject.total_price_from_this_product - payment_made);
+    //     const finality = (currentProject.total_price_from_this_product - payment_made);
 
-        Bucket.data.patch(env.PROGRESSPAYMENTS_BUCKET_ID, project, { payments, payment_made, price_difference_payment, finality })
-    })
+    //     Bucket.data.patch(env.PROGRESSPAYMENTS_BUCKET_ID, project, { payments, payment_made, price_difference_payment, finality })
+    // })
 }
 
 //Employees

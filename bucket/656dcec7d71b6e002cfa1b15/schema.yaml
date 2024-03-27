@@ -2,26 +2,10 @@ _id: 656dcec7d71b6e002cfa1b15
 title: AssemblyProjects
 description: Describe your new bucket
 icon: view_stream
-primary: name
+primary: status
 readOnly: false
 history: false
 properties:
-  name:
-    type: string
-    title: name
-    description: Name
-    options:
-      position: right
-  ordered_project:
-    type: relation
-    title: ordered_project
-    description: Proje Adı
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 6527b072ffa6b3002d10bfd3
-    dependent: false
-    primary: name
   unit_worksite_delivery_form:
     type: array
     title: unit_worksite_delivery_form
@@ -215,21 +199,37 @@ properties:
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     default: exist
     enum:
       - exist
       - deleted
-      - archived
     options:
       position: right
+  project:
+    type: relation
+    title: project
+    description: Proje Adı
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651e842a82063a002c6fa24f
+    dependent: false
+    primary: name
+  customer:
+    type: relation
+    title: customer
+    description: Müşteri
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d309082063a002c6f9851
+    dependent: false
+    primary: name
   fully_added_to_gantt_chart:
     type: boolean
     title: fully_added_to_gantt_chart
-    description: Tüm Üniteler Montaj Planına Eklendi
+    description: Montaj Planına Eklendi
     options:
       position: bottom
     default: false
@@ -238,5 +238,4 @@ acl:
   read: true==true
 order: 6
 category: pages
-required:
-  - ordered_project
+required: []

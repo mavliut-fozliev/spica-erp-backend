@@ -16,16 +16,6 @@ properties:
     bucketId: 6576ddbbd71b6e002cfb2812
     dependent: false
     primary: team_name
-  order_name:
-    type: relation
-    title: order_name
-    description: Sipariş
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 656dcec7d71b6e002cfa1b15
-    dependent: false
-    primary: name
   customer:
     type: relation
     title: customer
@@ -46,20 +36,10 @@ properties:
     bucketId: 651e842a82063a002c6fa24f
     dependent: false
     primary: name
-  product:
-    type: relation
-    title: product
+  product_index_from_order:
+    type: number
+    title: product_index_from_order
     description: Ünite
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651d84bc82063a002c6f9f9a
-    dependent: false
-    primary: name
-  product_serial_number:
-    type: string
-    title: product_serial_number
-    description: Ünite Seri Numara
     options:
       position: bottom
   start:
@@ -118,15 +98,11 @@ properties:
   status:
     type: string
     title: status
-    description: |-
-      -exist
-      -deleted
-      -archived
+    description: ""
     default: exist
     enum:
       - exist
       - deleted
-      - archived
     options:
       position: right
   amount_of_days:
@@ -140,5 +116,4 @@ acl:
   read: true==true
 order: 7
 category: pages
-required:
-  - field_team
+required: []
