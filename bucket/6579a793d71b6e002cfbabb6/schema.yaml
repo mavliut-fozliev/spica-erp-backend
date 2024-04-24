@@ -67,12 +67,6 @@ properties:
           description: Lokasyon Litre Detayı
           options:
             position: bottom
-        location_fuel_cost:
-          type: number
-          title: location_fuel_cost
-          description: Lokasyon Yakıt Bedeli
-          options:
-            position: bottom
   status:
     type: string
     title: status

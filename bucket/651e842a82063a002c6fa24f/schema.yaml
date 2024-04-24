@@ -212,6 +212,7 @@ properties:
     relationType: onetoone
     bucketId: 6579a793d71b6e002cfbabb6
     dependent: false
+    primary: name
 acl:
   write: true==true
   read: true==true

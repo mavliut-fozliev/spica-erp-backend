@@ -9,24 +9,6 @@ triggers:
       type: REPLACE
     type: database
     active: true
-  addBucketToPagesBucket:
-    options:
-      collection: buckets
-      type: REPLACE
-    type: database
-    active: true
-  deleteBucketFromPagesBucket:
-    options:
-      collection: buckets
-      type: DELETE
-    type: database
-    active: true
-  changeBucketOrder:
-    options:
-      collection: buckets
-      type: REPLACE
-    type: database
-    active: true
 env: {}
 memoryLimit: 100
 order: 4

@@ -44,48 +44,18 @@ export async function changeOfferStandbyTime(change) {
 }
 
 //MonthlyProgressPayments
-export async function onMonthlyProgressPaymentsDataChange(change) {
-    // Bucket.initialize({ apikey: env.CLIENT_API_KEY })
-    // const targetProjects = change.current.payments.map(p => p.project)
-    // const monthlyProgressPayments = await Bucket.data.getAll(env.MONTHLYPROGRESSPAYMENTS_BUCKET_ID, {
-    //     queryParams: {
-    //         filter: { status: { $ne: "deleted" } }
-    //     }
-    // })
-    // targetProjects.forEach(async (project) => {
-    //     const payments = []
-    //     let newPricePerFloor = 0
-    //     let singlePayment = 0
-    //     monthlyProgressPayments.forEach(p => {
-    //         p.payments?.forEach(payment => {
-    //             if (payment.project === project) {
-    //                 newPricePerFloor = payment.price_per_floor
-    //                 singlePayment = payment.payment
-    //                 payments.push({
-    //                     fuel_cost: payment.fuel,
-    //                     fuel_description: payment.work_status + " " + payment.work_percentage,
-    //                     payment: payment.payment,
-    //                     payment_description: payment.price_per_floor.toString(),
-    //                     payment_date: payment.date,
-    //                 })
-    //             }
-    //         })
-    //     })
+export async function addTeamsEveryMonth() {
+    Bucket.initialize({ apikey: env.CLIENT_API_KEY })
+    const months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
 
-    //     const currentProject = await Bucket.data.get(env.PROGRESSPAYMENTS_BUCKET_ID, project);
+    const fieldTeams = await Bucket.data.getAll(env.FIELDTEAMS_BUCKET_ID)
+    const currentYear = dayjs().year()
+    const currentMonth = months[dayjs().month()]
 
-    //     const oldPricePerFloor = currentProject.price_per_floor
-
-    //     const payment_made =
-    //         (payments.reduce((acc, current) => acc + (current.payment || 0) + (current.fuel_cost || 0), 0) || 0)
-    //         + (currentProject.advance_payment || 0);
-
-    //     const price_difference_payment = ((newPricePerFloor - oldPricePerFloor) / newPricePerFloor) * singlePayment
-
-    //     const finality = (currentProject.total_price_from_this_product - payment_made);
-
-    //     Bucket.data.patch(env.PROGRESSPAYMENTS_BUCKET_ID, project, { payments, payment_made, price_difference_payment, finality })
-    // })
+    fieldTeams.forEach(fieldTeam => {
+        const newDocument = { year: currentYear, month: currentMonth, team_name: fieldTeam._id }
+        Bucket.data.insert(env.MONTHLYPROGRESSPAYMENTS_BUCKET_ID, newDocument)
+    })
 }
 
 //Employees

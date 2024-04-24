@@ -159,6 +159,12 @@ properties:
           description: Ödeme No
           options:
             position: bottom
+        payed_floor_cost:
+          type: number
+          title: payed_floor_cost
+          description: Ödeme
+          options:
+            position: bottom
       required: []
   status:
     type: string
@@ -170,6 +176,105 @@ properties:
       - deleted
     options:
       position: right
+  additional_payments:
+    type: array
+    title: additional_payments
+    description: Ek Ödenecek İşler
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        payment_amount:
+          type: number
+          title: payment_amount
+          description: Tutar
+          options:
+            position: bottom
+        reason:
+          type: textarea
+          title: reason
+          description: Açıklama
+          options:
+            position: bottom
+  advance_payment_and_other:
+    type: array
+    title: advance_payment_and_other
+    description: Bu Aydan Verilen Avans Ve Diğer Ödemeler
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        payment_amount:
+          type: number
+          title: payment_amount
+          description: Tutar
+          options:
+            position: bottom
+        reason:
+          type: textarea
+          title: reason
+          description: Açıklama
+          options:
+            position: bottom
+        currency:
+          type: string
+          title: currency
+          description: Birim
+          options:
+            position: bottom
+          enum:
+            - ₺
+            - €
+            - $
+            - £
+          default: ₺
+  dept_tl:
+    type: object
+    title: dept_tl
+    description: Borç (TL)
+    options:
+      position: bottom
+  dept_euro:
+    type: object
+    title: dept_euro
+    description: Borç (€)
+    options:
+      position: bottom
+  dept_dollar:
+    type: object
+    title: dept_dollar
+    description: Borç ($)
+    options:
+      position: bottom
+  dept_sterling:
+    type: object
+    title: dept_sterling
+    description: Borç (£)
+    options:
+      position: bottom
+  salary:
+    type: array
+    title: salary
+    description: Maaş Ödemeleri
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        employee:
+          type: relation
+          title: employee
+          description: Personel
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 655cc987d71b6e002cf8b478
+          dependent: false
 acl:
   write: true==true
   read: true==true

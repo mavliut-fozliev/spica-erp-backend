@@ -15,12 +15,6 @@ triggers:
       frequency: 0 * * * *
     type: schedule
     active: true
-  onMonthlyProgressPaymentsDataChange:
-    options:
-      bucket: 657ae033d71b6e002cfbe32f
-      type: ALL
-    type: bucket
-    active: true
   changeEmployeesEveryDay:
     options:
       timezone: UTC
@@ -44,6 +38,12 @@ triggers:
       bucket: 655f5ee3d71b6e002cf94752
       type: ALL
     type: bucket
+    active: true
+  addTeamsEveryMonth:
+    options:
+      timezone: UTC
+      frequency: 0 0 1 * *
+    type: schedule
     active: true
 env: {}
 memoryLimit: 100

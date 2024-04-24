@@ -100,22 +100,33 @@ export async function sendMail(req, res) {
     const data = req.body;
     const nodemailer = require("nodemailer");
 
+    const stringData = data.filter(obj => obj.hasOwnProperty("name"))
+    const correctedData = stringData.map(obj => ({ ...obj, data: obj.data?.toString("utf-8") }))
+    const stringDataObj = {}
+    correctedData.forEach(({ name, data }) => {
+        stringDataObj[name] = data
+    })
+
+    const attachments = data.filter(obj => obj.hasOwnProperty("filename"))
+    const correctedAttachments = attachments.map(obj => ({ filename: data.filename, content: obj.data, contentType: obj.type }))
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: data.user,
-            pass: data.pass
+            user: stringDataObj.user,
+            pass: stringDataObj.pass
         }
     });
 
     const message = {
-        from: 'KUBİLAY KUTLAY MÜH.ve İNŞ.ŞTİ.LTD. <' + data.user + '>',
-        to: data.to,
-        subject: data.title,
-        text: data.text,
-        attachments: data.attachments
+        from: 'KUBİLAY KUTLAY MÜH.ve İNŞ.ŞTİ.LTD. <' + stringDataObj.user + '>',
+        to: stringDataObj.to,
+        subject: stringDataObj.title,
+        text: stringDataObj.text,
+        attachments: correctedAttachments
     };
 
-    const info = await transporter.sendMail(message);
-    res.status(200).send(info);
+    transporter.sendMail(message)
+        .then((info) => res.status(200).send(info))
+        .catch(e => res.status(500).send(`${e}`))
 }

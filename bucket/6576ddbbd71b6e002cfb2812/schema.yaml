@@ -15,7 +15,7 @@ properties:
   employees:
     type: array
     title: employees
-    description: Personel
+    description: Kadro
     options:
       position: bottom
     items:
@@ -25,12 +25,31 @@ properties:
         employee:
           type: relation
           title: employee
-          description: ""
+          description: Personel
           options:
             position: bottom
           relationType: onetoone
           bucketId: 655cc987d71b6e002cf8b478
           dependent: false
+        salary:
+          type: number
+          title: salary
+          description: Maaş
+          options:
+            position: bottom
+        minimum_wage:
+          type: number
+          title: minimum_wage
+          description: Asgari Ücret
+          options:
+            position: bottom
+        is_boss:
+          type: boolean
+          title: is_boss
+          description: Patron
+          options:
+            position: bottom
+          default: false
   status:
     type: string
     title: status
