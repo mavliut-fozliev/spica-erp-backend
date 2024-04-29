@@ -1,6 +1,6 @@
-_id: 655dde2ed71b6e002cf8e4a8
-title: Employees-OHS
-description: Personeller
+_id: 662f4ae63931f4002bf65fe3
+title: EmployeesOHS
+description: Describe your new bucket
 icon: view_stream
 primary: status
 readOnly: false
@@ -9,13 +9,12 @@ properties:
   status:
     type: string
     title: status
-    description: ""
     default: exist
     enum:
       - exist
       - deleted
     options:
-      position: right
+      position: bottom
   employee:
     type: relation
     title: employee
@@ -36,6 +35,12 @@ properties:
       title: Title of the items
       type: object
       properties:
+        notes:
+          type: textarea
+          title: notes
+          description: Not
+          options:
+            position: bottom
         training:
           type: relation
           title: training
@@ -45,12 +50,6 @@ properties:
           relationType: onetoone
           bucketId: 655de02dd71b6e002cf8eab4
           dependent: false
-        notes:
-          type: textarea
-          title: notes
-          description: Not
-          options:
-            position: bottom
   cautions_and_punishments:
     type: array
     title: cautions_and_punishments
@@ -67,22 +66,10 @@ properties:
           description: Tarih
           options:
             position: bottom
-        instructor:
-          type: string
-          title: instructor
-          description: Uyarıyı veren kişi
-          options:
-            position: bottom
-        notes:
-          type: textarea
-          title: notes
-          description: Notlar
-          options:
-            position: bottom
         file:
           type: array
           title: file
-          description: Dosya
+          description: Description of the file input
           options:
             position: bottom
           items:
@@ -102,6 +89,18 @@ properties:
                 options:
                   position: bottom
                 default: false
+        instructor:
+          type: string
+          title: instructor
+          description: Uyarıyı veren kişi
+          options:
+            position: bottom
+        notes:
+          type: textarea
+          title: notes
+          description: Notlar
+          options:
+            position: bottom
   equipments:
     type: array
     title: equipments
@@ -112,22 +111,20 @@ properties:
       title: Title of the items
       type: object
       properties:
-        name:
-          type: string
-          title: name
-          description: Adı
-          options:
-            position: bottom
         amount:
           type: number
           title: amount
           description: Adet
           options:
             position: bottom
+        name:
+          type: string
+          title: name
+          description: Adı
+          options:
+            position: bottom
 acl:
   write: true==true
   read: true==true
-order: 14
+order: 17
 category: pages
-required:
-  - employee

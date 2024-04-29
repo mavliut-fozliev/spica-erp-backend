@@ -1,0 +1,29 @@
+_id: 662f6ecc3931f4002bf66691
+title: EmployeesTrainings
+description: Describe your new bucket
+icon: view_stream
+primary: status
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+  employee:
+    type: relation
+    title: employee
+    description: Personel
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 655cc987d71b6e002cf8b478
+    dependent: false
+acl:
+  write: true==true
+  read: true==true
+order: 16
+category: pages

@@ -123,7 +123,7 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 19
+order: 20
 category: pages
 required:
   - leave_type

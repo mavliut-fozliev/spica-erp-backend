@@ -518,7 +518,7 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 18
+order: 19
 category: pages
 required:
   - nationality

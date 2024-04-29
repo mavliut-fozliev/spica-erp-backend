@@ -18,12 +18,6 @@ properties:
     description: Tarih
     options:
       position: bottom
-  notes:
-    type: textarea
-    title: notes
-    description: Not
-    options:
-      position: bottom
   files:
     type: array
     title: files
@@ -58,8 +52,23 @@ properties:
       - deleted
     options:
       position: right
+  type:
+    type: string
+    title: type
+    description: Eğitim Türü
+    options:
+      position: bottom
+    enum:
+      - montaj eğitimi
+      - iş sağlığı güvenliği eğitimi
+  validity_period:
+    type: number
+    title: validity_period
+    description: Geçerlilik Süresi
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
-order: 16
+order: 14
 category: pages

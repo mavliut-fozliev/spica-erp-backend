@@ -174,6 +174,7 @@ properties:
     enum:
       - exist
       - deleted
+      - paid
     options:
       position: right
   additional_payments:
@@ -238,24 +239,132 @@ properties:
     description: Borç (TL)
     options:
       position: bottom
+    properties:
+      cut_this_month_tl:
+        title: cut_this_month_tl
+        description: Bu Ay Yapılan Kesinti (TL)
+        type: number
+      next_month_dept_tl:
+        title: next_month_dept_tl
+        description: Sonraki Aya Devreden Borç (TL)
+        type: number
+      previous_month_dept_tl:
+        title: previous_month_dept_tl
+        description: Önceki Aydan Devreden Avans Borcu (TL)
+        type: number
+      total_advance_payment_and_other_tl:
+        title: total_advance_payment_and_other_tl
+        description: Bu Aydan Verilen Avans Ve Diğer Ödemeler Toplamı (TL)
+        type: number
+      total_debt_tl:
+        title: total_debt_tl
+        description: Toplam Borç (TL)
+        type: number
   dept_euro:
     type: object
     title: dept_euro
     description: Borç (€)
     options:
       position: bottom
+    properties:
+      cut_this_month_euro:
+        title: cut_this_month_euro
+        description: Bu Ay Yapılan Kesinti (€)
+        type: number
+      next_month_dept_euro:
+        title: next_month_dept_euro
+        description: Sonraki Aya Devreden Borç (€)
+        type: number
+      previous_month_dept_euro:
+        title: previous_month_dept_euro
+        description: Önceki Aydan Devreden Avans Borcu (€)
+        type: number
+      total_advance_payment_and_other_euro:
+        title: total_advance_payment_and_other_euro
+        description: Bu Aydan Verilen Avans Ve Diğer Ödemeler Toplamı (€)
+        type: number
+      total_debt_euro:
+        title: total_debt_euro
+        description: Toplam Borç (€)
+        type: number
+      euro_exchange_rate:
+        title: euro_exchange_rate
+        description: Euro Döviz Kuru
+        type: number
+      euro_equivalent_lira:
+        title: euro_equivalent_lira
+        description: TL Karşılığı
+        type: number
   dept_dollar:
     type: object
     title: dept_dollar
     description: Borç ($)
     options:
       position: bottom
+    properties:
+      cut_this_month_dollar:
+        title: cut_this_month_dollar
+        description: Bu Ay Yapılan Kesinti ($)
+        type: number
+      next_month_dept_dollar:
+        title: next_month_dept_dollar
+        description: Sonraki Aya Devreden Borç ($)
+        type: number
+      previous_month_dept_dollar:
+        title: previous_month_dept_dollar
+        description: Önceki Aydan Devreden Avans Borcu ($)
+        type: number
+      total_advance_payment_and_other_dollar:
+        title: total_advance_payment_and_other_dollar
+        description: Bu Aydan Verilen Avans Ve Diğer Ödemeler Toplamı ($)
+        type: number
+      total_debt_dollar:
+        title: total_debt_dollar
+        description: Toplam Borç ($)
+        type: number
+      dollar_exchange_rate:
+        title: dollar_exchange_rate
+        description: Dolar Döviz Kuru
+        type: number
+      dollar_equivalent_lira:
+        title: dollar_equivalent_lira
+        description: TL Karşılığı
+        type: number
   dept_sterling:
     type: object
     title: dept_sterling
     description: Borç (£)
     options:
       position: bottom
+    properties:
+      cut_this_month_sterling:
+        title: cut_this_month_sterling
+        description: Bu Ay Yapılan Kesinti (£)
+        type: number
+      next_month_dept_sterling:
+        title: next_month_dept_sterling
+        description: Sonraki Aya Devreden Borç (£)
+        type: number
+      previous_month_dept_sterling:
+        title: previous_month_dept_sterling
+        description: Önceki Aydan Devreden Avans Borcu (£)
+        type: number
+      total_advance_payment_and_other_sterling:
+        title: total_advance_payment_and_other_sterling
+        description: Bu Aydan Verilen Avans Ve Diğer Ödemeler Toplamı (£)
+        type: number
+      total_debt_sterling:
+        title: total_debt_sterling
+        description: Toplam Borç (£)
+        type: number
+      sterling_exchange_rate:
+        title: sterling_exchange_rate
+        description: Sterlin Döviz Kuru
+        type: number
+      sterling_equivalent_lira:
+        title: sterling_equivalent_lira
+        description: TL Karşılığı
+        type: number
   salary:
     type: array
     title: salary
@@ -275,6 +384,94 @@ properties:
           relationType: onetoone
           bucketId: 655cc987d71b6e002cf8b478
           dependent: false
+        salary_amount:
+          type: number
+          title: salary_amount
+          description: Ödemeler Toplamı
+          options:
+            position: bottom
+        minimum_wage:
+          type: number
+          title: minimum_wage
+          description: Halk Banka Yatan Maaş Ödeme
+          options:
+            position: bottom
+        extra_salary:
+          type: number
+          title: extra_salary
+          description: Garanti Banka Yatan Ödeme
+          options:
+            position: bottom
+        minimum_wage_date:
+          type: date
+          title: minimum_wage_date
+          description: Halk Banka Yatan Maaş Ödeme Tarihi
+          options:
+            position: bottom
+        extra_salary_date:
+          type: date
+          title: extra_salary_date
+          description: Garanti Banka Yatan Maaş Ödeme
+          options:
+            position: bottom
+        minimum_wage_receipt:
+          type: string
+          title: minimum_wage_receipt
+          description: Halk Banka Yatan Maaş Ödeme Dekont No
+          options:
+            position: bottom
+        extra_salary_receipt:
+          type: string
+          title: extra_salary_receipt
+          description: Garanti Banka Yatan Ödeme Dekont No
+          options:
+            position: bottom
+        minimum_wage_receipt_file:
+          type: array
+          title: minimum_wage_receipt_file
+          description: Halk Banka Yatan Maaş Ödeme Dekont
+          options:
+            position: bottom
+          items:
+            title: Title of the items
+            type: object
+            properties:
+              storage:
+                type: storage
+                title: storage
+                description: Description of the storage input
+                options:
+                  position: bottom
+              deleted:
+                type: boolean
+                title: deleted
+                description: Description of the deleted input
+                options:
+                  position: bottom
+                default: false
+        extra_salary_receipt_file:
+          type: array
+          title: extra_salary_receipt_file
+          description: Garanti Banka Yatan Ödeme Dekont
+          options:
+            position: bottom
+          items:
+            title: Title of the items
+            type: object
+            properties:
+              storage:
+                type: storage
+                title: storage
+                description: Description of the storage input
+                options:
+                  position: bottom
+              deleted:
+                type: boolean
+                title: deleted
+                description: Description of the deleted input
+                options:
+                  position: bottom
+                default: false
 acl:
   write: true==true
   read: true==true

@@ -11,6 +11,7 @@ export function addStatusFieldToBucket(change) {
                     title: 'status',
                     default: 'exist',
                     enum: ["exist", "deleted"],
+                    options: { position: "bottom" }
                 }
             }
         })

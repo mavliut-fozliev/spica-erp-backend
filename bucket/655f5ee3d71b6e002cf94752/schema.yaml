@@ -87,10 +87,23 @@ properties:
     description: Ünite
     options:
       position: bottom
+  without_project:
+    type: boolean
+    title: without_project
+    description: Projesiz
+    options:
+      position: bottom
+    default: false
+  job_description:
+    type: string
+    title: job_description
+    description: İş Tanımı
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
-order: 20
+order: 21
 category: pages
 required:
   - employee

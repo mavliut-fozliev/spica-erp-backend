@@ -192,7 +192,7 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 22
+order: 23
 category: pages
 required:
   - license_plate

@@ -97,6 +97,8 @@ export async function addReminderNotification() {
 
 
 export async function sendMail(req, res) {
+    Storage.initialize({apikey: CLIENT_API_KEY });
+
     const data = req.body;
     const nodemailer = require("nodemailer");
 
@@ -110,11 +112,13 @@ export async function sendMail(req, res) {
     const attachments = data.filter(obj => obj.hasOwnProperty("filename"))
     const correctedAttachments = attachments.map(obj => ({ filename: data.filename, content: obj.data, contentType: obj.type }))
 
+    const file = await Storage.get(stringDataObj.fileId)
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: stringDataObj.user,
-            pass: stringDataObj.pass
+            user: "mavlut18@gmail.com",
+            pass: "soce uesn dsta erdi"
         }
     });
 
@@ -123,7 +127,7 @@ export async function sendMail(req, res) {
         to: stringDataObj.to,
         subject: stringDataObj.title,
         text: stringDataObj.text,
-        attachments: correctedAttachments
+        attachments: [...correctedAttachments, {filename: file.name, path: file.url}]
     };
 
     transporter.sendMail(message)
