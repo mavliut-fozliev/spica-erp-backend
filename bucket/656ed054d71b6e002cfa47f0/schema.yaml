@@ -363,20 +363,6 @@ properties:
           description: Description of the control_type input
           options:
             position: bottom
-        checkbox_1:
-          type: boolean
-          title: checkbox_1
-          description: Description of the checkbox_1 input
-          options:
-            position: bottom
-          default: false
-        checkbox_2:
-          type: boolean
-          title: checkbox_2
-          description: Description of the checkbox_2 input
-          options:
-            position: bottom
-          default: false
         form_notes:
           type: string
           title: form_notes

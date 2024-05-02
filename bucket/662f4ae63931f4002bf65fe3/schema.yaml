@@ -25,31 +25,6 @@ properties:
     bucketId: 655cc987d71b6e002cf8b478
     dependent: false
     primary: name
-  trainings:
-    type: array
-    title: trainings
-    description: Eğitimler
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        notes:
-          type: textarea
-          title: notes
-          description: Not
-          options:
-            position: bottom
-        training:
-          type: relation
-          title: training
-          description: Eğitim
-          options:
-            position: bottom
-          relationType: onetoone
-          bucketId: 655de02dd71b6e002cf8eab4
-          dependent: false
   cautions_and_punishments:
     type: array
     title: cautions_and_punishments

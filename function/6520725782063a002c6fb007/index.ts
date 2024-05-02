@@ -1,4 +1,5 @@
 import * as Bucket from "@spica-devkit/bucket";
+import * as Storage from "@spica-devkit/storage"
 
 const CLIENT_API_KEY = process.env.CLIENT_API_KEY;
 

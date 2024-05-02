@@ -6,13 +6,6 @@ primary: status
 readOnly: false
 history: false
 properties:
-  status:
-    type: string
-    title: status
-    default: exist
-    enum:
-      - exist
-      - deleted
   training:
     type: relation
     title: training
@@ -42,6 +35,16 @@ properties:
           relationType: onetoone
           bucketId: 655cc987d71b6e002cf8b478
           dependent: false
+  status:
+    type: string
+    title: status
+    description: ""
+    options:
+      position: bottom
+    enum:
+      - exist
+      - deleted
+    default: exist
   date:
     type: date
     title: date

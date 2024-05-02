@@ -25,7 +25,7 @@ properties:
     options:
       position: bottom
     items:
-      title: many
+      title: ""
       type: object
       properties:
         storage:
@@ -41,7 +41,7 @@ properties:
           options:
             position: bottom
           default: false
-      description: many
+      description: ""
   status:
     type: string
     title: status
