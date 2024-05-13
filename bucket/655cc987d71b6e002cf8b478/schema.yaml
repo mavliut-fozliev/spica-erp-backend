@@ -382,39 +382,6 @@ properties:
     options:
       position: bottom
     default: 126
-  used_leave:
-    type: number
-    title: used_leave
-    description: Description of the used_leave input
-    options:
-      position: bottom
-    default: 0
-  remaining_leave:
-    type: string
-    title: remaining_leave
-    description: Kalan İzin Gün Sayısı
-    options:
-      position: bottom
-  fmi_total_leave:
-    type: number
-    title: fmi_total_leave
-    description: Description of the fmi_total_leave input
-    options:
-      position: bottom
-    default: 0
-  fmi_used_leave:
-    type: number
-    title: fmi_used_leave
-    description: Description of the fmi_used_leave input
-    options:
-      position: bottom
-    default: 0
-  fmi_remaining_leave:
-    type: string
-    title: fmi_remaining_leave
-    description: Kalan Fazla Mesai İzin Gün Sayısı
-    options:
-      position: bottom
   provided_certificates:
     type: array
     title: provided_certificates

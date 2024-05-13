@@ -86,7 +86,7 @@ properties:
   leave_amount:
     type: number
     title: leave_amount
-    description: Description of the leave_amount input
+    description: İzin Süresi
     options:
       position: bottom
     default: 0
@@ -113,13 +113,6 @@ properties:
           options:
             position: bottom
           default: false
-  fmi_leave_amount:
-    type: number
-    title: fmi_leave_amount
-    description: Description of the fmi_leave_amount input
-    options:
-      position: bottom
-    default: 0
 acl:
   write: true==true
   read: true==true

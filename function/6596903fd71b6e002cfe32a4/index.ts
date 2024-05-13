@@ -65,13 +65,18 @@ export async function changeEmployeesEveryDay(change) {
     const employees = await Bucket.data.getAll(env.EMPLOYEES_BUCKET_ID)
     employees.forEach(employee => {
         const difference = dayjs().diff(dayjs(employee.start_date), "year")
-        const total_leave = difference >= 15 ? (25 * 9) : difference >= 10 ? (22 * 9) : difference >= 5 ? (18 * 9) : (14 * 9);
-        const remaining_leave = `${((total_leave - employee.used_leave) / 9).toFixed(1).replace(/\.?0+$/, "")} gün (${total_leave -
-            employee.used_leave} saat)`;
 
+        const conditions = [
+            { threshold: 15, multiplier: 25 },
+            { threshold: 10, multiplier: 22 },
+            { threshold: 5, multiplier: 18 },
+            { threshold: 0, multiplier: 14 },
+        ];
+
+        const condition = conditions.find((condition) => difference >= condition.threshold);
+        const total_leave = condition ? condition.multiplier * workingHours : 0;
         Bucket.data.patch(env.EMPLOYEES_BUCKET_ID, employee._id, {
             total_leave,
-            remaining_leave,
         })
     })
 }
@@ -81,12 +86,8 @@ export async function changeEmployeesEveryYear(change) {
 
     const employees = await Bucket.data.getAll(env.EMPLOYEES_BUCKET_ID)
     employees.forEach(employee => {
-        const remaining_leave = `${employee.total_leave / 9} gün (${employee.total_leave} saat)`;
-        const used_leave = 0
-
         Bucket.data.patch(env.EMPLOYEES_BUCKET_ID, employee._id, {
-            remaining_leave,
-            used_leave
+            used_leave: 0
         })
     })
 }
@@ -123,34 +124,3 @@ export async function onAnnualLeaveDataChange(change) {
     }
 }
 
-//Overtime
-export async function onOvertimeDataChange(change) {
-    Bucket.initialize({ apikey: env.CLIENT_API_KEY })
-
-    if ((change.kind === 'update' || change.kind === 'insert')) {
-        const employeeId = change.current.employee
-        const currentYear = new Date().getFullYear();
-        const regexPattern = new RegExp(`^${currentYear}`);
-
-        const overtimes = await Bucket.data.getAll(env.OVERTIME_BUCKET_ID, {
-            queryParams: {
-                filter: {
-                    status: { $ne: "deleted" }, employee: { $eq: employeeId }, manager_approval: { $eq: true },
-                    department_head_approval: { $eq: true },// start_date: { $regex: regexPattern}
-                }
-            }
-        })
-
-        const fmi_total_leave = overtimes.reduce((sum, overtime) => sum + overtime.overtime_amount, 0);
-
-        const employee = await Bucket.data.get(env.EMPLOYEES_BUCKET_ID, employeeId)
-
-        const fmi_remaining_leave = `${((fmi_total_leave - employee.fmi_used_leave) / 9)
-            .toFixed(1).replace(/\.?0+$/, "")} gün (${fmi_total_leave - employee.fmi_used_leave} saat)`
-
-        Bucket.data.patch(env.EMPLOYEES_BUCKET_ID, employeeId, {
-            fmi_total_leave,
-            fmi_remaining_leave
-        })
-    }
-}

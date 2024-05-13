@@ -67,7 +67,7 @@ properties:
   overtime_amount:
     type: number
     title: overtime_amount
-    description: Description of the overtime_amount input
+    description: Mesai Süresi
     options:
       position: bottom
     default: 0

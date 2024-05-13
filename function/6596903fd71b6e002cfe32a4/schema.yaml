@@ -33,12 +33,6 @@ triggers:
       type: ALL
     type: bucket
     active: true
-  onOvertimeDataChange:
-    options:
-      bucket: 655f5ee3d71b6e002cf94752
-      type: ALL
-    type: bucket
-    active: true
   addTeamsEveryMonth:
     options:
       timezone: UTC

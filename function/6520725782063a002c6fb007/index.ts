@@ -98,8 +98,6 @@ export async function addReminderNotification() {
 
 
 export async function sendMail(req, res) {
-    Storage.initialize({apikey: CLIENT_API_KEY });
-
     const data = req.body;
     const nodemailer = require("nodemailer");
 
@@ -113,25 +111,46 @@ export async function sendMail(req, res) {
     const attachments = data.filter(obj => obj.hasOwnProperty("filename"))
     const correctedAttachments = attachments.map(obj => ({ filename: data.filename, content: obj.data, contentType: obj.type }))
 
+    Storage.initialize({ identity: stringDataObj.identity });
+
     const file = await Storage.get(stringDataObj.fileId)
 
+    const signature = await Storage.get("66349a4e3931f4002bf6c8a1")
+
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'mail.lcn.com',
+        port: 465,
+        secure: true,
         auth: {
-            user: "mavlut18@gmail.com",
-            pass: "soce uesn dsta erdi"
+            user: 'test@kutlaymuhendislik.com',
+            pass: 'Deneme.9876'
+        },
+        tls: {
+            rejectUnauthorized: true
         }
     });
 
-    const message = {
-        from: 'KUBİLAY KUTLAY MÜH.ve İNŞ.ŞTİ.LTD. <' + stringDataObj.user + '>',
+    const mailOptions = {
+        from: 'test@kutlaymuhendislik.com',
         to: stringDataObj.to,
+        cc: stringDataObj.cc,
         subject: stringDataObj.title,
-        text: stringDataObj.text,
-        attachments: [...correctedAttachments, {filename: file.name, path: file.url}]
+        html: `
+            <div>${stringDataObj.text}</div>
+            <div style="margin-top: 20px">--</div>
+            <div><img src="${signature.url}" style="width: 80%; height: auto;"></div>
+        `,
+        attachments: [
+            ...correctedAttachments,
+            { filename: file.name, path: file.url },
+        ]
     };
 
-    transporter.sendMail(message)
-        .then((info) => res.status(200).send(info))
-        .catch(e => res.status(500).send(`${e}`))
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.error(error);
+        }
+        console.log('Message sent: ', info.messageId);
+        res.status(200).send(info)
+    });
 }

@@ -13,6 +13,7 @@ properties:
     enum:
       - exist
       - deleted
+      - passive
     options:
       position: bottom
   employee:
@@ -44,7 +45,7 @@ properties:
         file:
           type: array
           title: file
-          description: Description of the file input
+          description: ""
           options:
             position: bottom
           items:
