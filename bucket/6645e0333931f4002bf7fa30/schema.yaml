@@ -1,0 +1,122 @@
+_id: 6645e0333931f4002bf7fa30
+title: MaintenanceContracts
+description: Describe your new bucket
+icon: view_stream
+primary: status
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - signed
+    options:
+      position: bottom
+  start_date:
+    type: date
+    title: start_date
+    description: Başlangıç Tarihi
+    options:
+      position: bottom
+  end_date:
+    type: date
+    title: end_date
+    description: Bitiş Tarihi
+    options:
+      position: bottom
+  signed_maintenance:
+    type: array
+    title: signed_maintenance
+    description: İmzalı Bakım Sözleşmesi
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  maintenance_contract:
+    type: array
+    title: maintenance_contract
+    description: Bakım Sözleşmesi
+    options:
+      position: bottom
+    items:
+      title: ""
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+      description: ""
+  standard_price:
+    type: number
+    title: standard_price
+    description: Standart Fiyat
+    options:
+      position: bottom
+  elite_price:
+    type: number
+    title: elite_price
+    description: Elit Fiyat
+    options:
+      position: bottom
+  premium_price:
+    type: number
+    title: premium_price
+    description: Premium Fiyat
+    options:
+      position: bottom
+  reference_number:
+    type: string
+    title: reference_number
+    description: Referans No
+    options:
+      position: bottom
+  service_type:
+    type: string
+    title: service_type
+    description: Hizmet Tipi
+    options:
+      position: bottom
+  maintenance_unit:
+    type: relation
+    title: maintenance_unit
+    description: Description of the maintenance_unit input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6697d098082079002b1df695
+    dependent: false
+    primary: installation_number
+acl:
+  write: true==true
+  read: true==true
+order: 25
+category: pages

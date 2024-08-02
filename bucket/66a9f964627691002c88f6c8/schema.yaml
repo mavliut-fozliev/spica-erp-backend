@@ -1,0 +1,38 @@
+_id: 66a9f964627691002c88f6c8
+title: MaintenancePlanningMaintenance
+description: Describe your new bucket
+icon: view_stream
+primary: status
+readOnly: false
+history: false
+properties:
+  maintenance_unit:
+    type: relation
+    title: maintenance_unit
+    description: Description of the maintenance_unit input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6697d098082079002b1df695
+    dependent: false
+    primary: installation_number
+  date:
+    type: date
+    title: date
+    description: Description of the date input
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 27
+category: pages

@@ -6,16 +6,6 @@ primary: status
 readOnly: false
 history: false
 properties:
-  ordered_project:
-    type: relation
-    title: ordered_project
-    description: Proje Adı
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 6527b072ffa6b3002d10bfd3
-    dependent: false
-    primary: name
   emo:
     type: array
     title: emo
@@ -167,5 +157,5 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 24
+order: 20
 category: pages

@@ -2,7 +2,7 @@ import * as Bucket from "@spica-devkit/bucket";
 import { env } from "../../6544faf5d71b6e002cf70b78/.build"
 
 export function addStatusFieldToBucket(change) {
-    Bucket.initialize({ apikey: env.CLIENT_API_KEY });
+    Bucket.initialize({ apikey: env.SECRET_API_KEY });
     if (change.document.category === "pages" && !change.document.properties.hasOwnProperty("status")) {
         Bucket.update(change.document._id, {
             ...change.document, properties: {
@@ -14,6 +14,6 @@ export function addStatusFieldToBucket(change) {
                     options: { position: "bottom" }
                 }
             }
-        })
+        }).catch(e=>console.log(e))
     }
 }

@@ -6,16 +6,6 @@ primary: reference_number
 readOnly: false
 history: false
 properties:
-  customer:
-    type: relation
-    title: customer
-    description: Müşteri Adı
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651d309082063a002c6f9851
-    dependent: false
-    primary: name
   project:
     type: relation
     title: project
@@ -32,16 +22,6 @@ properties:
     description: Referans NO
     options:
       position: bottom
-  previous_offer:
-    type: relation
-    title: previous_offer
-    description: Orjinal Teklif
-    options:
-      position: left
-    relationType: onetoone
-    bucketId: 651d6a2882063a002c6f9ba3
-    dependent: false
-    primary: reference_number
   notes:
     type: textarea
     title: notes
@@ -101,7 +81,7 @@ properties:
     options:
       position: right
     items:
-      title: many
+      title: ""
       type: object
       properties:
         storage:
@@ -117,7 +97,7 @@ properties:
           options:
             position: bottom
           default: false
-      description: many
+      description: ""
   status:
     type: string
     title: status
@@ -143,12 +123,6 @@ properties:
     options:
       position: left
     default: :created_at
-  standby_time:
-    type: string
-    title: standby_time
-    description: Bekleme Süresi
-    options:
-      position: bottom
   offer_validity_period:
     type: date
     title: offer_validity_period
@@ -182,11 +156,41 @@ properties:
             position: bottom
           items:
             title: Title of the items
-            type: string
+            type: object
+            properties:
+              json_string:
+                type: string
+                title: json_string
+                description: Description of the json_string input
+                options:
+                  position: bottom
+              photo:
+                type: array
+                title: photo
+                description: Description of the photo input
+                options:
+                  position: bottom
+                items:
+                  title: Title of the items
+                  type: object
+                  properties:
+                    storage:
+                      type: storage
+                      title: storage
+                      description: Description of the storage input
+                      options:
+                        position: bottom
+                    deleted:
+                      type: boolean
+                      title: deleted
+                      description: Description of the deleted input
+                      options:
+                        position: bottom
+                      default: false
         count:
           type: number
           title: count
-          description: Adet
+          description: Description of the count input
           options:
             position: bottom
   delivery_time:
@@ -212,242 +216,16 @@ properties:
     options:
       position: bottom
     default: 16
-  confirmed_revise_index:
-    type: string
-    title: confirmed_revise_index
-    description: Description of the confirmed_revise_index input
+  revised_offer:
+    type: relation
+    title: revised_offer
+    description: Description of the revised_offer input
     options:
       position: bottom
-  draft_drawing_1:
-    type: array
-    title: draft_drawing_1
-    description: Description of the draft_drawing_1 input
-    options:
-      position: bottom
-    items:
-      title: img
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_2:
-    type: array
-    title: draft_drawing_2
-    description: Description of the draft_drawing_2 input
-    options:
-      position: bottom
-    items:
-      title: img
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_3:
-    type: array
-    title: draft_drawing_3
-    description: Description of the draft_drawing_3 input
-    options:
-      position: bottom
-    items:
-      title: img
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_4:
-    type: array
-    title: draft_drawing_4
-    description: Description of the draft_drawing_4 input
-    options:
-      position: bottom
-    items:
-      title: img
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_5:
-    type: array
-    title: draft_drawing_5
-    description: Description of the draft_drawing_5 input
-    options:
-      position: bottom
-    items:
-      title: img
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_6:
-    type: array
-    title: draft_drawing_6
-    description: Description of the draft_drawing_6 input
-    options:
-      position: bottom
-    items:
-      title: img
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_7:
-    type: array
-    title: draft_drawing_7
-    description: Description of the draft_drawing_7 input
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_8:
-    type: array
-    title: draft_drawing_8
-    description: Description of the draft_drawing_8 input
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_9:
-    type: array
-    title: draft_drawing_9
-    description: Description of the draft_drawing_9 input
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
-  draft_drawing_10:
-    type: array
-    title: draft_drawing_10
-    description: Description of the draft_drawing_10 input
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        storage:
-          type: storage
-          title: storage
-          description: Description of the storage input
-          options:
-            position: bottom
-        deleted:
-          type: boolean
-          title: deleted
-          description: Description of the deleted input
-          options:
-            position: bottom
-          default: false
+    relationType: onetoone
+    bucketId: 651d6a2882063a002c6f9ba3
+    dependent: false
+    primary: reference_number
 acl:
   write: true==true
   read: true==true

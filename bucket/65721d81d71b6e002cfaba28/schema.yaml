@@ -16,16 +16,6 @@ properties:
     bucketId: 651e842a82063a002c6fa24f
     dependent: false
     primary: name
-  customer:
-    type: relation
-    title: customer
-    description: Müşteri
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651d309082063a002c6f9851
-    dependent: false
-    primary: name
   agreement:
     type: array
     title: agreement
@@ -33,7 +23,7 @@ properties:
     options:
       position: left
     items:
-      title: many
+      title: ""
       type: object
       properties:
         storage:
@@ -49,7 +39,7 @@ properties:
           options:
             position: bottom
           default: false
-      description: many
+      description: ""
   agreement_signed:
     type: array
     title: agreement_signed
@@ -99,9 +89,9 @@ properties:
           options:
             position: bottom
         money_amount:
-          type: string
+          type: number
           title: money_amount
-          description: Ödeme Tutarı
+          description: Description of the money_amount input
           options:
             position: bottom
   status:
@@ -119,12 +109,6 @@ properties:
       - unsigned
     options:
       position: right
-  product_count:
-    type: number
-    title: product_count
-    description: Ünite Adet
-    options:
-      position: bottom
   delivery_time:
     type: string
     title: delivery_time
@@ -137,16 +121,293 @@ properties:
     description: Sözleşme Tarihi
     options:
       position: bottom
-  offers:
-    type: relation
-    title: offers
-    description: Description of the offers input
+  delivery_date:
+    type: date
+    title: delivery_date
+    description: Description of the delivery_date input
     options:
       position: bottom
-    relationType: onetomany
-    bucketId: 651d6a2882063a002c6f9ba3
-    dependent: false
-    primary: reference_number
+  estimated_arrival_date:
+    type: date
+    title: estimated_arrival_date
+    description: Description of the estimated_arrival_date input
+    options:
+      position: bottom
+  schindler_files:
+    type: array
+    title: schindler_files
+    description: Description of the schindler_files input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  pull_signal_form:
+    type: array
+    title: pull_signal_form
+    description: Description of the pull_signal_form input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  notes_for_assembly:
+    type: textarea
+    title: notes_for_assembly
+    description: Description of the notes_for_assembly input
+    options:
+      position: bottom
+  invoice:
+    type: array
+    title: invoice
+    description: Description of the invoice input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  order_status:
+    type: string
+    title: order_status
+    description: Description of the order_status input
+    options:
+      position: bottom
+    enum:
+      - waiting
+      - approved
+    default: waiting
+  units_created:
+    type: boolean
+    title: units_created
+    description: Description of the units_created input
+    options:
+      position: bottom
+    default: false
+  unit_worksite_delivery_form:
+    type: array
+    title: unit_worksite_delivery_form
+    description: Description of the unit_worksite_delivery_form input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  unit_worksite_delivery_photos:
+    type: array
+    title: unit_worksite_delivery_photos
+    description: Description of the unit_worksite_delivery_photos input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  mechanical_assembly_delivery_form:
+    type: array
+    title: mechanical_assembly_delivery_form
+    description: Description of the mechanical_assembly_delivery_form input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  mechanical_assembly_delivery_photos:
+    type: array
+    title: mechanical_assembly_delivery_photos
+    description: Description of the mechanical_assembly_delivery_photos input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  damage_notification_form:
+    type: array
+    title: damage_notification_form
+    description: Description of the damage_notification_form input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  damage_notification_photos:
+    type: array
+    title: damage_notification_photos
+    description: Description of the damage_notification_photos input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  external_files:
+    type: array
+    title: external_files
+    description: Description of the external_files input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  extra_material:
+    type: array
+    title: extra_material
+    description: Description of the extra_material input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        name:
+          type: string
+          title: name
+          description: Description of the name input
+          options:
+            position: bottom
+        count:
+          type: number
+          title: count
+          description: Description of the count input
+          options:
+            position: bottom
 acl:
   write: true==true
   read: true==true

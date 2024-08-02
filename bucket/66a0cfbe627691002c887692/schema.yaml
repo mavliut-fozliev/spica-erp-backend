@@ -1,0 +1,76 @@
+_id: 66a0cfbe627691002c887692
+title: MaintenanceTracking
+description: Describe your new bucket
+icon: view_stream
+primary: status
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+    options:
+      position: bottom
+  employee:
+    type: relation
+    title: employee
+    description: Description of the employee input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 655cc987d71b6e002cf8b478
+    dependent: false
+    primary: name
+  maintenance_maintenance:
+    type: relation
+    title: maintenance_maintenance
+    description: Description of the maintenance_maintenance input
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 66a9f652627691002c88f5ae
+    dependent: false
+    primary: status
+  maintenance_faults:
+    type: relation
+    title: maintenance_faults
+    description: Description of the maintenance_faults input
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 66a9e876627691002c88f39a
+    dependent: false
+    primary: status
+  maintenance_other:
+    type: relation
+    title: maintenance_other
+    description: Description of the maintenance_other input
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 66a9f77a627691002c88f624
+    dependent: false
+    primary: status
+  should_move_expired_units:
+    type: boolean
+    title: should_move_expired_units
+    description: Description of the should_move_expired_units input
+    options:
+      position: bottom
+    default: false
+  should_create_monthly_plan:
+    type: boolean
+    title: should_create_monthly_plan
+    description: Description of the should_create_monthly_plan input
+    options:
+      position: bottom
+    default: false
+acl:
+  write: true==true
+  read: true==true
+order: 28
+category: pages

@@ -42,23 +42,7 @@ properties:
     description: Description of the seen_date input
     options:
       position: bottom
-  status:
-    type: string
-    title: status
-    description: |-
-      
-
-      -exist
-      -deleted
-      -archived
-    options:
-      position: bottom
-    default: exist
-    enum:
-      - exist
-      - deleted
-      - archived
 acl:
   write: true==true
   read: true==true
-order: 31
+order: 33

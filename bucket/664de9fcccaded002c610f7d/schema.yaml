@@ -1,0 +1,64 @@
+_id: 664de9fcccaded002c610f7d
+title: AssemblyPlan
+description: Describe your new bucket
+icon: view_stream
+primary: amount_of_days
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+    options:
+      position: bottom
+  field_team:
+    type: relation
+    title: field_team
+    description: Ekip
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6576ddbbd71b6e002cfb2812
+    dependent: false
+    primary: team_name
+  start_date:
+    type: date
+    title: start_date
+    description: Başlangıç Tarihi
+    options:
+      position: bottom
+  amount_of_days:
+    type: number
+    title: amount_of_days
+    description: Gün Sayısı
+    options:
+      position: bottom
+  unit:
+    type: relation
+    title: unit
+    description: Ünite
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6648c50dccaded002c60aa88
+    dependent: false
+    primary: serial_number
+  dependency:
+    type: relation
+    title: dependency
+    description: Description of the dependency input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 664de9fcccaded002c610f7d
+    dependent: false
+    primary: status
+acl:
+  write: true==true
+  read: true==true
+order: 6
+category: pages

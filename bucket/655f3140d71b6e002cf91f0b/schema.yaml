@@ -71,25 +71,6 @@ properties:
     description: Not
     options:
       position: bottom
-  start_time:
-    type: date
-    title: start_time
-    description: Başlangıç Saati
-    options:
-      position: bottom
-  end_time:
-    type: date
-    title: end_time
-    description: Bitiş Saati
-    options:
-      position: bottom
-  leave_amount:
-    type: number
-    title: leave_amount
-    description: İzin Süresi
-    options:
-      position: bottom
-    default: 0
   medical_report:
     type: array
     title: medical_report
@@ -113,15 +94,25 @@ properties:
           options:
             position: bottom
           default: false
+  start_time:
+    type: string
+    title: start_time
+    description: Description of the start_time input
+    options:
+      position: bottom
+  end_time:
+    type: string
+    title: end_time
+    description: Description of the end_time input
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
-order: 20
+order: 13
 category: pages
 required:
   - leave_type
   - employee
   - start_date
   - end_date
-  - start_time
-  - end_time

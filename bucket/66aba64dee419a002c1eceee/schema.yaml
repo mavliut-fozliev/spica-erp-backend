@@ -1,0 +1,44 @@
+_id: 66aba64dee419a002c1eceee
+title: SAISUnits
+description: Describe your new bucket
+icon: view_stream
+primary: status
+readOnly: false
+history: false
+properties:
+  unit:
+    type: relation
+    title: unit
+    description: Description of the unit input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6648c50dccaded002c60aa88
+    dependent: false
+    primary: serial_number
+  form:
+    type: string
+    title: form
+    description: Description of the form input
+    options:
+      position: bottom
+  form_data:
+    type: string
+    title: form_data
+    description: Description of the form_data input
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 22
+category: pages

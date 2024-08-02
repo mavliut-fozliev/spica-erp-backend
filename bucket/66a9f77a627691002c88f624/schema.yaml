@@ -1,0 +1,67 @@
+_id: 66a9f77a627691002c88f624
+title: MaintenanceOther
+description: Describe your new bucket
+icon: view_stream
+primary: status
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+    options:
+      position: bottom
+  maintenance_unit:
+    type: relation
+    title: maintenance_unit
+    description: Description of the maintenance_unit input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6697d098082079002b1df695
+    dependent: false
+    primary: installation_number
+  date:
+    type: date
+    title: date
+    description: Description of the date input
+    options:
+      position: bottom
+  file:
+    type: array
+    title: file
+    description: Description of the file input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  notes:
+    type: textarea
+    title: notes
+    description: Description of the notes input
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 31
+category: pages

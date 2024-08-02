@@ -1,0 +1,113 @@
+_id: 6697d098082079002b1df695
+title: MaintenanceUnits
+description: Describe your new bucket
+icon: view_stream
+primary: installation_number
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - passive
+    options:
+      position: bottom
+  installation_number:
+    type: string
+    title: installation_number
+    description: Description of the installation_number input
+    options:
+      position: bottom
+  company:
+    type: string
+    title: company
+    description: Description of the company input
+    options:
+      position: bottom
+  building_name:
+    type: string
+    title: building_name
+    description: Description of the building_name input
+    options:
+      position: bottom
+  unit_name:
+    type: string
+    title: unit_name
+    description: Description of the unit_name input
+    options:
+      position: bottom
+  product:
+    type: relation
+    title: product
+    description: Description of the product input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d84bc82063a002c6f9f9a
+    dependent: false
+    primary: status
+  map_location:
+    type: relation
+    title: map_location
+    description: Description of the map_location input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 667d75d2a67577002b36b364
+    dependent: false
+    primary: title
+  unit_speed:
+    type: string
+    title: unit_speed
+    description: Description of the unit_speed input
+    options:
+      position: bottom
+  capacity_kg:
+    type: string
+    title: capacity_kg
+    description: Description of the capacity_kg input
+    options:
+      position: bottom
+  capacity_people:
+    type: string
+    title: capacity_people
+    description: Description of the capacity_people input
+    options:
+      position: bottom
+  number_of_stops:
+    type: string
+    title: number_of_stops
+    description: Description of the number_of_stops input
+    options:
+      position: bottom
+  order_of_priority:
+    type: number
+    title: order_of_priority
+    description: Description of the order_of_priority input
+    options:
+      position: bottom
+  default_employee:
+    type: relation
+    title: default_employee
+    description: Description of the default_employee input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 655cc987d71b6e002cf8b478
+    dependent: false
+    primary: name
+  position:
+    type: string
+    title: position
+    description: Description of the position input
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 24
+category: pages

@@ -63,7 +63,7 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 8
+order: 7
 category: pages
 required:
   - team_name

@@ -127,7 +127,7 @@ properties:
     options:
       position: bottom
     items:
-      title: many
+      title: ""
       type: object
       properties:
         storage:
@@ -143,7 +143,7 @@ properties:
           options:
             position: bottom
           default: false
-      description: many
+      description: ""
   additional_document:
     type: array
     title: additional_document
@@ -151,7 +151,7 @@ properties:
     options:
       position: bottom
     items:
-      title: many
+      title: ""
       type: object
       properties:
         storage:
@@ -167,7 +167,7 @@ properties:
           options:
             position: bottom
           default: false
-      description: many
+      description: ""
   comment_section:
     type: textarea
     title: comment_section
@@ -180,12 +180,6 @@ properties:
     description: Hatırlatma
     options:
       position: bottom
-  serial_number:
-    type: number
-    title: serial_number
-    description: PROJE NUMARASI
-    options:
-      position: bottom
   created_date:
     type: date
     title: created_date
@@ -193,6 +187,7 @@ properties:
     options:
       position: left
     readOnly: false
+    default: :created_at
   status:
     type: string
     title: status
@@ -203,16 +198,38 @@ properties:
       - deleted
     options:
       position: right
+  map_locations:
+    type: array
+    title: map_locations
+    description: Konum Bilgileri
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        location:
+          type: string
+          title: location
+          description: ""
+          options:
+            position: bottom
+  serial_number:
+    type: string
+    title: serial_number
+    description: Description of the serial_number input
+    options:
+      position: bottom
   location:
     type: relation
     title: location
-    description: Lokasyon
+    description: Description of the location input
     options:
       position: bottom
     relationType: onetoone
-    bucketId: 6579a793d71b6e002cfbabb6
+    bucketId: 667d75d2a67577002b36b364
     dependent: false
-    primary: name
+    primary: title
 acl:
   write: true==true
   read: true==true
@@ -220,10 +237,5 @@ order: 2
 required:
   - name
   - customer
-  - related_person
-  - related_person_phone
-  - related_person_role
-  - related_person_email
-  - reminder
   - products
 category: pages

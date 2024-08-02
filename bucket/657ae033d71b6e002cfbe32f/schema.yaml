@@ -70,15 +70,6 @@ properties:
       title: grid
       type: object
       properties:
-        project:
-          type: relation
-          title: project
-          description: Proje Adı
-          options:
-            position: bottom
-          relationType: onetoone
-          bucketId: 651e842a82063a002c6fa24f
-          dependent: false
         work_status:
           type: string
           title: work_status
@@ -101,50 +92,10 @@ properties:
           description: "%"
           options:
             position: bottom
-          enum:
-            - 0%
-            - 5%
-            - 10%
-            - 15%
-            - 20%
-            - 25%
-            - 30%
-            - 35%
-            - 40%
-            - 45%
-            - 50%
-            - 55%
-            - 60%
-            - 65%
-            - 70%
-            - 75%
-            - 80%
-            - 85%
-            - 90%
-            - 95%
-            - 100%
-        date:
-          type: date
-          title: date
-          description: Ödeme Tarihi
-          options:
-            position: bottom
-        product_index_from_order:
-          type: number
-          title: product_index_from_order
-          description: Ünite
-          options:
-            position: bottom
         fuel_price:
           type: number
           title: fuel_price
           description: Yakıt Litre Fiyatı
-          options:
-            position: bottom
-        payed_fuel_cost:
-          type: number
-          title: payed_fuel_cost
-          description: Ödenen Yakıt Ücreti
           options:
             position: bottom
         fuel_date:
@@ -159,10 +110,55 @@ properties:
           description: Ödeme No
           options:
             position: bottom
-        payed_floor_cost:
+        unit:
+          type: relation
+          title: unit
+          description: Ünite
+          options:
+            position: bottom
+          relationType: onetoone
+          bucketId: 6648c50dccaded002c60aa88
+          dependent: false
+        paid_floor_cost:
           type: number
-          title: payed_floor_cost
-          description: Ödeme
+          title: paid_floor_cost
+          description: Description of the paid_floor_cost input
+          options:
+            position: bottom
+        paid_fuel_cost:
+          type: number
+          title: paid_fuel_cost
+          description: Description of the paid_fuel_cost input
+          options:
+            position: bottom
+        floor_date:
+          type: date
+          title: floor_date
+          description: Description of the floor_date input
+          options:
+            position: bottom
+        total_floor_price:
+          type: number
+          title: total_floor_price
+          description: Description of the total_floor_price input
+          options:
+            position: bottom
+        price_difference_payment:
+          type: number
+          title: price_difference_payment
+          description: Description of the price_difference_payment input
+          options:
+            position: bottom
+        total_fuel_price:
+          type: number
+          title: total_fuel_price
+          description: Description of the total_fuel_price input
+          options:
+            position: bottom
+        fuel_price_difference_payment:
+          type: number
+          title: fuel_price_difference_payment
+          description: Description of the fuel_price_difference_payment input
           options:
             position: bottom
       required: []
@@ -233,6 +229,12 @@ properties:
             - $
             - £
           default: ₺
+        date:
+          type: date
+          title: date
+          description: Tarih
+          options:
+            position: bottom
   dept_tl:
     type: object
     title: dept_tl
@@ -365,6 +367,22 @@ properties:
         title: sterling_equivalent_lira
         description: TL Karşılığı
         type: number
+  dept:
+    type: array
+    title: dept
+    description: Description of the dept input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        dept_deduction:
+          type: number
+          title: dept_deduction
+          description: Description of the dept_deduction input
+          options:
+            position: bottom
   salary:
     type: array
     title: salary
@@ -475,6 +493,6 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 11
+order: 9
 category: pages
 required: []

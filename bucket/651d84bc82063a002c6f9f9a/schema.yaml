@@ -2,16 +2,10 @@ _id: 651d84bc82063a002c6f9f9a
 title: Products
 description: Üniteler
 icon: view_stream
-primary: name
+primary: status
 readOnly: false
 history: false
 properties:
-  name:
-    type: string
-    title: name
-    description: Adı
-    options:
-      position: right
   brand:
     type: string
     title: brand

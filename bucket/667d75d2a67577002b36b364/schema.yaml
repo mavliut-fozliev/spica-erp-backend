@@ -1,5 +1,5 @@
-_id: 655f3c82d71b6e002cf93d3f
-title: RetrofitRecords
+_id: 667d75d2a67577002b36b364
+title: MapLocations
 description: Describe your new bucket
 icon: view_stream
 primary: title
@@ -12,24 +12,17 @@ properties:
     description: Title of the row
     options:
       position: left
-  description:
-    type: textarea
-    title: description
-    description: Description of the row
-    options:
-      position: right
   status:
     type: string
     title: status
-    description: ""
     default: exist
     enum:
       - exist
       - deleted
     options:
-      position: right
+      position: bottom
 acl:
   write: true==true
   read: true==true
-order: 29
+order: 32
 category: pages

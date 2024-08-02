@@ -1,0 +1,80 @@
+_id: 66a9e876627691002c88f39a
+title: MaintenanceFaults
+description: Describe your new bucket
+icon: view_stream
+primary: status
+readOnly: false
+history: false
+properties:
+  date:
+    type: date
+    title: date
+    description: Description of the date input
+    options:
+      position: bottom
+  end_time:
+    type: string
+    title: end_time
+    description: Description of the end_time input
+    options:
+      position: bottom
+  file:
+    type: array
+    title: file
+    description: Description of the file input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  is_malfunction:
+    type: boolean
+    title: is_malfunction
+    description: Description of the is_malfunction input
+    options:
+      position: bottom
+    default: false
+  maintenance_unit:
+    type: relation
+    title: maintenance_unit
+    description: Description of the maintenance_unit input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6697d098082079002b1df695
+    dependent: false
+    primary: installation_number
+  start_time:
+    type: string
+    title: start_time
+    description: Description of the start_time input
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 30
+category: pages

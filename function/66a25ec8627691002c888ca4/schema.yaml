@@ -1,0 +1,20 @@
+_id: 66a25ec8627691002c888ca4
+name: maintenanceTracking
+language: javascript
+timeout: 12
+triggers:
+  setIfShouldMoveExpiredUnits:
+    type: schedule
+    active: true
+    options:
+      timezone: UTC
+      frequency: 0 0 * * *
+  setIfCreateMonthlyPlan:
+    options:
+      timezone: UTC
+      frequency: 0 0 1 * *
+    type: schedule
+    active: true
+env: {}
+memoryLimit: 100
+category: pages

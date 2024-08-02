@@ -32,18 +32,6 @@ properties:
     description: Tarih
     options:
       position: bottom
-  start_time:
-    type: date
-    title: start_time
-    description: Başlangıç Saati
-    options:
-      position: bottom
-  end_time:
-    type: date
-    title: end_time
-    description: Bitiş Saati
-    options:
-      position: bottom
   department_head_approval:
     type: boolean
     title: department_head_approval
@@ -64,29 +52,6 @@ properties:
     description: Not
     options:
       position: bottom
-  overtime_amount:
-    type: number
-    title: overtime_amount
-    description: Mesai Süresi
-    options:
-      position: bottom
-    default: 0
-  project:
-    type: relation
-    title: project
-    description: Proje
-    options:
-      position: bottom
-    relationType: onetoone
-    bucketId: 651e842a82063a002c6fa24f
-    dependent: false
-    primary: name
-  product_index_from_order:
-    type: number
-    title: product_index_from_order
-    description: Ünite
-    options:
-      position: bottom
   without_project:
     type: boolean
     title: without_project
@@ -100,13 +65,33 @@ properties:
     description: İş Tanımı
     options:
       position: bottom
+  unit:
+    type: relation
+    title: unit
+    description: Ünite
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 6648c50dccaded002c60aa88
+    dependent: false
+    primary: serial_number
+  start_time:
+    type: string
+    title: start_time
+    description: Description of the start_time input
+    options:
+      position: bottom
+  end_time:
+    type: string
+    title: end_time
+    description: Description of the end_time input
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
-order: 21
+order: 12
 category: pages
 required:
   - employee
   - overtime
-  - start_time
-  - end_time

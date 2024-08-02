@@ -2,16 +2,20 @@ _id: 6579a793d71b6e002cfbabb6
 title: Locations
 description: Describe your new bucket
 icon: view_stream
-primary: name
+primary: model
 readOnly: false
 history: false
 properties:
-  name:
-    type: string
-    title: name
-    description: Adı
+  map_location:
+    type: relation
+    title: map_location
+    description: Description of the map_location input
     options:
       position: bottom
+    relationType: onetoone
+    bucketId: 667d75d2a67577002b36b364
+    dependent: false
+    primary: title
   model:
     type: string
     title: model
@@ -80,8 +84,6 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 12
+order: 11
 category: pages
-required:
-  - name
-  - model
+required: []

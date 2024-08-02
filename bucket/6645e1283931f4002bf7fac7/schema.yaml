@@ -1,0 +1,42 @@
+_id: 6645e1283931f4002bf7fac7
+title: MaintenancePlanning
+description: Describe your new bucket
+icon: view_stream
+primary: status
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+    options:
+      position: bottom
+  employee:
+    type: relation
+    title: employee
+    description: Description of the employee input
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 655cc987d71b6e002cf8b478
+    dependent: false
+    primary: name
+  maintenance_planning_maintenance:
+    type: relation
+    title: maintenance_planning_maintenance
+    description: Description of the maintenance_planning_maintenance input
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 66a9f964627691002c88f6c8
+    dependent: false
+    primary: status
+acl:
+  write: true==true
+  read: true==true
+order: 26
+category: pages

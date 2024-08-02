@@ -1,0 +1,55 @@
+_id: 6648c50dccaded002c60aa88
+title: Units
+description: Describe your new bucket
+icon: view_stream
+primary: serial_number
+readOnly: false
+history: false
+properties:
+  status:
+    type: string
+    title: status
+    default: exist
+    enum:
+      - exist
+      - deleted
+      - unsigned
+    options:
+      position: bottom
+  product:
+    type: relation
+    title: product
+    description: Ünite Tipi
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651d84bc82063a002c6f9f9a
+    dependent: false
+    primary: name
+  project:
+    type: relation
+    title: project
+    description: Proje
+    options:
+      position: bottom
+    relationType: onetoone
+    bucketId: 651e842a82063a002c6fa24f
+    dependent: false
+    primary: name
+  serial_number:
+    type: string
+    title: serial_number
+    description: Seri No
+    options:
+      position: bottom
+  unit_data:
+    type: string
+    title: unit_data
+    description: Özellikler
+    options:
+      position: bottom
+acl:
+  write: true==true
+  read: true==true
+order: 5
+category: pages
