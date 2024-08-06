@@ -1,0 +1,16 @@
+_id: 66b1ffe2ee419a002c1f2700
+name: offers
+language: javascript
+timeout: 12
+triggers:
+  getAvailableProjects:
+    type: http
+    active: true
+    options:
+      method: Get
+      path: /offers/projects
+      preflight: true
+env: {}
+memoryLimit: 100
+order: 0
+category: pages
