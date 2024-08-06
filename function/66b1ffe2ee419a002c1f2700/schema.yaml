@@ -3,7 +3,7 @@ name: offers
 language: javascript
 timeout: 12
 triggers:
-  getAvailableProjects:
+  getAvailableProjectsAndCustomers:
     type: http
     active: true
     options:
