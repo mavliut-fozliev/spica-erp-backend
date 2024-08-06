@@ -60,5 +60,5 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 6
+order: 8
 category: pages

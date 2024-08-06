@@ -538,6 +538,6 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 18
+order: 20
 category: pages
 required: []

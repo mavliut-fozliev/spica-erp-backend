@@ -87,10 +87,16 @@ properties:
     options:
       position: bottom
     default: false
-  photo:
+  photo_position:
+    type: string
+    title: photo_position
+    description: Description of the photo_position input
+    options:
+      position: bottom
+  start_photo:
     type: array
-    title: photo
-    description: Description of the photo input
+    title: start_photo
+    description: Description of the start_photo input
     options:
       position: bottom
     items:
@@ -110,14 +116,31 @@ properties:
           options:
             position: bottom
           default: false
-  photo_position:
-    type: string
-    title: photo_position
-    description: Description of the photo_position input
+  end_photo:
+    type: array
+    title: end_photo
+    description: Description of the end_photo input
     options:
       position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
 acl:
   write: true==true
   read: true==true
-order: 29
+order: 30
 category: pages

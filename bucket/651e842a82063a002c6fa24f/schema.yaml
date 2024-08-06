@@ -70,33 +70,6 @@ properties:
           options:
             position: bottom
           default: false
-  products:
-    type: array
-    title: products
-    description: Üniteler
-    options:
-      position: bottom
-    items:
-      title: ""
-      type: object
-      properties:
-        product_stepped_brand_type_model:
-          type: relation
-          title: product_stepped_brand_type_model
-          description: Ünite_Marka_Ürün Tipi_Ürün Modeli
-          options:
-            position: bottom
-          relationType: onetoone
-          bucketId: 651d84bc82063a002c6f9f9a
-          dependent: false
-        count:
-          type: number
-          title: count
-          description: Adet
-          options:
-            position: bottom
-      required: []
-    readOnly: false
   field_control_form:
     type: array
     title: field_control_form
@@ -220,10 +193,20 @@ properties:
     description: Description of the serial_number input
     options:
       position: bottom
-  location:
+  products:
     type: relation
-    title: location
-    description: Description of the location input
+    title: products
+    description: Description of the products input
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 66aff3beee419a002c1f01c7
+    dependent: false
+    primary: count
+  map_location:
+    type: relation
+    title: map_location
+    description: Description of the map_location input
     options:
       position: bottom
     relationType: onetoone
@@ -234,8 +217,5 @@ acl:
   write: true==true
   read: true==true
 order: 2
-required:
-  - name
-  - customer
-  - products
+required: []
 category: pages

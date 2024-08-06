@@ -2,7 +2,7 @@ _id: 651d84bc82063a002c6f9f9a
 title: Products
 description: Üniteler
 icon: view_stream
-primary: status
+primary: model
 readOnly: false
 history: false
 properties:

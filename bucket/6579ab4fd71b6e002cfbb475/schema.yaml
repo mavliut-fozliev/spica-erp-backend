@@ -75,7 +75,7 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 10
+order: 12
 category: pages
 required:
   - model

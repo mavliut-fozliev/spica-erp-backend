@@ -18,26 +18,7 @@ properties:
     description: Description of the value input
     options:
       position: bottom
-  obj_test:
-    type: object
-    title: obj_test
-    description: Description of the obj_test input
-    options:
-      position: bottom
-    properties:
-      storage:
-        type: storage
-        title: storage
-        description: Description of the storage input
-        options:
-          position: bottom
-      str:
-        type: string
-        title: str
-        description: Description of the str input
-        options:
-          position: right
 acl:
   write: true==true
   read: true==true
-order: 35
+order: 36

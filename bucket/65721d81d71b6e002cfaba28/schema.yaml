@@ -411,6 +411,6 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 4
+order: 6
 category: pages
 required: []

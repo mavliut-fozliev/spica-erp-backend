@@ -129,70 +129,6 @@ properties:
     description: Teklif Geçerlilik Süresi
     options:
       position: bottom
-  products:
-    type: array
-    title: products
-    description: Üniteler
-    options:
-      position: bottom
-    items:
-      title: Title of the items
-      type: object
-      properties:
-        product:
-          type: relation
-          title: product
-          description: Ünite
-          options:
-            position: bottom
-          relationType: onetoone
-          bucketId: 651d84bc82063a002c6f9f9a
-          dependent: false
-        docx_data:
-          type: array
-          title: docx_data
-          description: Özellikler
-          options:
-            position: bottom
-          items:
-            title: Title of the items
-            type: object
-            properties:
-              json_string:
-                type: string
-                title: json_string
-                description: Description of the json_string input
-                options:
-                  position: bottom
-              photo:
-                type: array
-                title: photo
-                description: Description of the photo input
-                options:
-                  position: bottom
-                items:
-                  title: Title of the items
-                  type: object
-                  properties:
-                    storage:
-                      type: storage
-                      title: storage
-                      description: Description of the storage input
-                      options:
-                        position: bottom
-                    deleted:
-                      type: boolean
-                      title: deleted
-                      description: Description of the deleted input
-                      options:
-                        position: bottom
-                      default: false
-        count:
-          type: number
-          title: count
-          description: Description of the count input
-          options:
-            position: bottom
   delivery_time:
     type: string
     title: delivery_time
@@ -226,9 +162,18 @@ properties:
     bucketId: 651d6a2882063a002c6f9ba3
     dependent: false
     primary: reference_number
+  products:
+    type: relation
+    title: products
+    description: Description of the products input
+    options:
+      position: bottom
+    relationType: onetomany
+    bucketId: 66b00c1bee419a002c1f0568
+    dependent: false
 acl:
   write: true==true
   read: true==true
-order: 3
+order: 4
 category: pages
 required: []

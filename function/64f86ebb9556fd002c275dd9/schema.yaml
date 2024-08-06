@@ -21,4 +21,4 @@ env:
   CLIENT_API_KEY: "{CLIENT_API_KEY}"
   SECRET_API_KEY: "{SECRET_API_KEY}"
 memoryLimit: 100
-order: 2
+order: 4

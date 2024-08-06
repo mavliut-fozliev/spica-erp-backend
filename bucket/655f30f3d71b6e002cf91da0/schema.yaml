@@ -31,5 +31,5 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 19
+order: 21
 category: pages

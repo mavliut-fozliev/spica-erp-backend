@@ -1,25 +1,25 @@
-_id: 66a9f964627691002c88f6c8
-title: MaintenancePlanningMaintenance
+_id: 66aff3beee419a002c1f01c7
+title: Projects___products
 description: Describe your new bucket
 icon: view_stream
-primary: status
+primary: count
 readOnly: false
 history: false
 properties:
-  maintenance_unit:
+  product:
     type: relation
-    title: maintenance_unit
-    description: Description of the maintenance_unit input
+    title: product
+    description: Description of the product input
     options:
       position: bottom
     relationType: onetoone
-    bucketId: 6697d098082079002b1df695
+    bucketId: 651d84bc82063a002c6f9f9a
     dependent: false
-    primary: installation_number
-  date:
-    type: date
-    title: date
-    description: Description of the date input
+    primary: model
+  count:
+    type: number
+    title: count
+    description: Description of the count input
     options:
       position: bottom
   status:
@@ -34,5 +34,5 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 28
+order: 3
 category: pages

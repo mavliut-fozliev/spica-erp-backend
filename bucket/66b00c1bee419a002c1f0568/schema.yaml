@@ -1,35 +1,41 @@
-_id: 662f6ecc3931f4002bf66691
-title: EmployeesTrainings
+_id: 66b00c1bee419a002c1f0568
+title: Offers___products
 description: Describe your new bucket
 icon: view_stream
-primary: status
+primary: count
 readOnly: false
 history: false
 properties:
-  employee:
+  product:
     type: relation
-    title: employee
-    description: Personel
+    title: product
+    description: Description of the product input
     options:
       position: bottom
     relationType: onetoone
-    bucketId: 655cc987d71b6e002cf8b478
+    bucketId: 651d84bc82063a002c6f9f9a
     dependent: false
-    primary: name
-  recieved_trainings:
+    primary: model
+  count:
+    type: number
+    title: count
+    description: Description of the count input
+    options:
+      position: bottom
+  docx_data:
     type: array
-    title: recieved_trainings
-    description: Aldığı Eğitimler
+    title: docx_data
+    description: Description of the docx_data input
     options:
       position: bottom
     items:
       title: Title of the items
       type: object
       properties:
-        certificate:
+        photo:
           type: array
-          title: certificate
-          description: Sertifika
+          title: photo
+          description: Description of the photo input
           options:
             position: bottom
           items:
@@ -49,18 +55,23 @@ properties:
                 options:
                   position: bottom
                 default: false
+        json_string:
+          type: string
+          title: json_string
+          description: Description of the json_string input
+          options:
+            position: bottom
   status:
     type: string
     title: status
-    description: ""
-    options:
-      position: bottom
+    default: exist
     enum:
       - exist
       - deleted
-    default: exist
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true
-order: 18
+order: 5
 category: pages

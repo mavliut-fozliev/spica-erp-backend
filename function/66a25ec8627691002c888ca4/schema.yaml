@@ -18,3 +18,4 @@ triggers:
 env: {}
 memoryLimit: 100
 category: pages
+order: 1

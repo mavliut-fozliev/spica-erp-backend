@@ -52,6 +52,6 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 8
+order: 10
 category: pages
 required: []

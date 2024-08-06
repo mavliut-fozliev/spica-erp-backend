@@ -37,8 +37,34 @@ properties:
       - deleted
     options:
       position: bottom
+  is_sais_went_to:
+    type: array
+    title: is_sais_went_to
+    description: Description of the is_sais_went_to input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: string
+      default: Hayır
+      enum:
+        - Evet
+        - Hayır
+  is_missing_list_fixed:
+    type: array
+    title: is_missing_list_fixed
+    description: Description of the is_missing_list_fixed input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: string
+      default: Hayır
+      enum:
+        - Evet
+        - Hayır
 acl:
   write: true==true
   read: true==true
-order: 22
+order: 23
 category: pages
