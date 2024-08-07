@@ -2,8 +2,7 @@ import * as Bucket from "@spica-devkit/bucket";
 import { env } from "../../6544faf5d71b6e002cf70b78/.build"
 
 export async function getAvailableProjectsAndCustomers(req, res) {
-	const authorization = req.headers.get('authorization');
-	const jwt = authorization ? authorization.split('Bearer ')[1] : null;
+	const jwt = req.headers.get('authorization');
 
 	Bucket.initialize({ identity: jwt })
 
