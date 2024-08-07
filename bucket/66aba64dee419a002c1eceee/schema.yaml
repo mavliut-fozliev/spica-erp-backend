@@ -38,31 +38,19 @@ properties:
     options:
       position: bottom
   is_sais_went_to:
-    type: array
+    type: boolean
     title: is_sais_went_to
     description: Description of the is_sais_went_to input
     options:
       position: bottom
-    items:
-      title: Title of the items
-      type: string
-      default: Hayır
-      enum:
-        - Evet
-        - Hayır
+    default: false
   is_missing_list_fixed:
-    type: array
+    type: boolean
     title: is_missing_list_fixed
     description: Description of the is_missing_list_fixed input
     options:
       position: bottom
-    items:
-      title: Title of the items
-      type: string
-      default: Hayır
-      enum:
-        - Evet
-        - Hayır
+    default: false
 acl:
   write: true==true
   read: true==true
