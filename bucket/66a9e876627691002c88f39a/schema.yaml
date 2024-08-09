@@ -41,13 +41,6 @@ properties:
           options:
             position: bottom
           default: false
-  is_malfunction:
-    type: boolean
-    title: is_malfunction
-    description: Description of the is_malfunction input
-    options:
-      position: bottom
-    default: false
   maintenance_unit:
     type: relation
     title: maintenance_unit
@@ -73,24 +66,17 @@ properties:
       - deleted
     options:
       position: bottom
-  created_date:
-    type: date
-    title: created_date
-    description: Description of the created_date input
-    options:
-      position: bottom
-    default: :created_at
-  notified:
-    type: boolean
-    title: notified
-    description: Description of the notified input
-    options:
-      position: bottom
-    default: false
   is_accepted:
     type: boolean
     title: is_accepted
     description: Description of the is_accepted input
+    options:
+      position: bottom
+    default: false
+  notified:
+    type: boolean
+    title: notified
+    description: Description of the notified input
     options:
       position: bottom
     default: false
@@ -108,8 +94,22 @@ properties:
     options:
       position: bottom
     default: false
+  is_fixed:
+    type: boolean
+    title: is_fixed
+    description: Description of the is_fixed input
+    options:
+      position: bottom
+    default: false
+  updated_date:
+    type: date
+    title: updated_date
+    description: Description of the updated_date input
+    options:
+      position: bottom
+    default: :created_at
 acl:
   write: true==true
   read: true==true
-order: 31
+order: 32
 category: pages

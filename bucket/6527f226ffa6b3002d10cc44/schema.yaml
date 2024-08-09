@@ -12,6 +12,12 @@ properties:
     description: Title of the row
     options:
       position: left
+  description:
+    type: textarea
+    title: description
+    description: Description of the description input
+    options:
+      position: bottom
   created_at:
     type: date
     title: created_at
@@ -42,13 +48,7 @@ properties:
     description: Description of the seen_date input
     options:
       position: bottom
-  description:
-    type: textarea
-    title: description
-    description: Description of the description input
-    options:
-      position: bottom
 acl:
   write: true==true
   read: true==true
-order: 34
+order: 35
