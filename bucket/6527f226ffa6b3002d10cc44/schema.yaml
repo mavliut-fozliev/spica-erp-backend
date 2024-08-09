@@ -42,6 +42,12 @@ properties:
     description: Description of the seen_date input
     options:
       position: bottom
+  description:
+    type: textarea
+    title: description
+    description: Description of the description input
+    options:
+      position: bottom
 acl:
   write: true==true
   read: true==true

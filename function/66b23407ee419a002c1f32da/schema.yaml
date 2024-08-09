@@ -1,0 +1,16 @@
+_id: 66b23407ee419a002c1f32da
+name: maintenanceFaults
+language: javascript
+timeout: 120
+triggers:
+  sendNotification:
+    type: schedule
+    active: true
+    options:
+      timezone: UTC
+      frequency: "* * * * *"
+env:
+  "CLIENT_API_KEY ": "{CLIENT_API_KEY }"
+memoryLimit: 100
+order: 2
+category: pages

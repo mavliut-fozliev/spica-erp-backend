@@ -6,6 +6,11 @@ attributes:
       title: role
       description: Description of 'role'
       options: {}
+      enum:
+        - maintenance_manager
+        - maintenance_technician
+        - user
+      default: user
     name:
       type: string
       title: name
