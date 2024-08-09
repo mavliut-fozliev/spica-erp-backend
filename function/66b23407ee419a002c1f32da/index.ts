@@ -28,7 +28,7 @@ function updateFaultStatus(_id, updateData) {
     }
 }
 
-async function notificationFunction(notificationPeriod, booleanName) {
+async function sendMaintenanceNotifications(notificationPeriod, booleanName) {
     Bucket.initialize({ apikey: env.CLIENT_API_KEY });
 
     const maintenanceFaults = await Bucket.data.getAll(maintenanceFaultsBucketId);
@@ -41,23 +41,27 @@ async function notificationFunction(notificationPeriod, booleanName) {
 
         if (!fault[booleanName] && timeDifference >= (notificationPeriod * 1000)) {
             let notificationMessage = ""
-            if (booleanName === "notified") {
-                notificationMessage = is_accepted
-                    ? "Arıza kabul edildi!"
-                    : "Yeni arıza eklendi ama kabul edilmedi.";
+            switch (booleanName) {
+                case "notified":
+                    notificationMessage = is_accepted
+                        ? "Arıza kabul edildi!"
+                        : "Yeni arıza eklendi ama kabul edilmedi.";
 
-                updateFaultStatus(_id, is_accepted ? { notified: true, created_date: new Date().toISOString() } : { notified: true });
-            } else if (booleanName === "first_reminder") {
-                if (!is_accepted || is_malfunction) continue
-                notificationMessage = "Arıza kabul edildi ancak son 1 saat içerisinde arızanın bakımı yapılmadı!"
+                    updateFaultStatus(_id, is_accepted ? { notified: true, created_date: new Date().toISOString() } : { notified: true });
+                    break;
 
-                updateFaultStatus(_id, { first_reminder: true });
+                case "first_reminder":
+                    if (!is_accepted || is_malfunction) continue
+                    notificationMessage = "Arıza kabul edildi ancak son 1 saat içerisinde arızanın bakımı yapılmadı!"
 
-            } else if (booleanName === "second_reminder") {
-                if (!is_accepted || is_malfunction) continue
-                notificationMessage = "Arıza kabul edildi ancak son 2 saat içerisinde arızanın bakımı yapılmadı!"
+                    updateFaultStatus(_id, { first_reminder: true });
+                    break;
 
-                updateFaultStatus(_id, { second_reminder: true });
+                case "second_reminder":
+                    if (!is_accepted || is_malfunction) continue
+                    notificationMessage = "Arıza kabul edildi ancak son 2 saat içerisinde arızanın bakımı yapılmadı!"
+
+                    updateFaultStatus(_id, { second_reminder: true });
             }
 
             insertNotification(`Yeni Arıza: ${_id}`, notificationMessage, "65291d7bffa6b3002d10dceb");
@@ -66,7 +70,13 @@ async function notificationFunction(notificationPeriod, booleanName) {
 }
 
 export function sendNotification() {
-    notificationFunction(600000, "notified") // 10 dk
-    notificationFunction(3600000, "first_reminder") // 1 saat
-    notificationFunction(7200000, "second_reminder") // 2 saat
+    const notificationSettings = [
+        { period: 600000, name: "notified" },         // 10 minutes
+        { period: 3600000, name: "first_reminder" },  // 1 hour
+        { period: 7200000, name: "second_reminder" }  // 2 hours
+    ];
+
+    notificationSettings.forEach(setting => {
+        sendMaintenanceNotifications(setting.period, setting.name);
+    });
 }
