@@ -34,5 +34,5 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 28
+order: 29
 category: pages

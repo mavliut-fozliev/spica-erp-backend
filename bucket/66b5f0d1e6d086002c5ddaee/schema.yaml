@@ -1,8 +1,8 @@
-_id: 66aba64dee419a002c1eceee
-title: SAISUnits
+_id: 66b5f0d1e6d086002c5ddaee
+title: PRESAISUnits
 description: Describe your new bucket
 icon: view_stream
-primary: status
+primary: form
 readOnly: false
 history: false
 properties:
@@ -29,14 +29,18 @@ properties:
     options:
       position: bottom
   status:
-    type: string
+    type: array
     title: status
-    default: exist
-    enum:
-      - exist
-      - deleted
+    description: Description of the status input
     options:
       position: bottom
+    items:
+      title: Title of the items
+      type: string
+      enum:
+        - exist
+        - deleted
+      default: exist
   is_sais_went_to:
     type: boolean
     title: is_sais_went_to
@@ -54,5 +58,5 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 23
+order: 24
 category: pages

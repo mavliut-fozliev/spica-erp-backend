@@ -1,5 +1,5 @@
-_id: 66b1ffe2ee419a002c1f2700
-name: offers
+_id: 66b4d593e6d086002c5dbeda
+name: contracts
 language: javascript
 timeout: 12
 triggers:
@@ -8,9 +8,9 @@ triggers:
     active: true
     options:
       method: Get
-      path: /offers/projects
+      path: /offers/contracts
       preflight: true
 env: {}
 memoryLimit: 100
-order: 0
+order: 1
 category: pages

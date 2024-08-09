@@ -63,5 +63,5 @@ properties:
 acl:
   write: true==true
   read: true==true
-order: 32
+order: 33
 category: pages
