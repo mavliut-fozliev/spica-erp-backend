@@ -171,6 +171,7 @@ properties:
     relationType: onetomany
     bucketId: 66b00c1bee419a002c1f0568
     dependent: false
+    primary: count
 acl:
   write: true==true
   read: true==true

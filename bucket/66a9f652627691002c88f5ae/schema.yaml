@@ -139,6 +139,52 @@ properties:
           description: Description of the storage input
           options:
             position: bottom
+  maintenance_form:
+    type: array
+    title: maintenance_form
+    description: Description of the maintenance_form input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
+  images:
+    type: array
+    title: images
+    description: Description of the images input
+    options:
+      position: bottom
+    items:
+      title: Title of the items
+      type: object
+      properties:
+        storage:
+          type: storage
+          title: storage
+          description: Description of the storage input
+          options:
+            position: bottom
+        deleted:
+          type: boolean
+          title: deleted
+          description: Description of the deleted input
+          options:
+            position: bottom
+          default: false
 acl:
   write: true==true
   read: true==true
