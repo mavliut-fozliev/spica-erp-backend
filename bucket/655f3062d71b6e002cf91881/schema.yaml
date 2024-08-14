@@ -54,6 +54,12 @@ properties:
       title: Title of the items
       type: object
       properties:
+        name:
+          type: string
+          title: name
+          description: name
+          options:
+            position: bottom
         storage:
           type: storage
           title: storage
@@ -83,6 +89,12 @@ properties:
       title: Title of the items
       type: object
       properties:
+        name:
+          type: string
+          title: name
+          description: name
+          options:
+            position: bottom
         storage:
           type: storage
           title: storage
@@ -112,6 +124,12 @@ properties:
       title: Title of the items
       type: object
       properties:
+        name:
+          type: string
+          title: name
+          description: name
+          options:
+            position: bottom
         storage:
           type: storage
           title: storage
@@ -141,6 +159,12 @@ properties:
       title: Title of the items
       type: object
       properties:
+        name:
+          type: string
+          title: name
+          description: name
+          options:
+            position: bottom
         storage:
           type: storage
           title: storage
@@ -170,6 +194,12 @@ properties:
       title: Title of the items
       type: object
       properties:
+        name:
+          type: string
+          title: name
+          description: name
+          options:
+            position: bottom
         storage:
           type: storage
           title: storage
